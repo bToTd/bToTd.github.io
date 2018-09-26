@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="fat32," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="硬盘是用来存储数据的，为了使用和管理方便，这些数据以文件的形式存储在硬盘上。任何操作系统都有自己的文件管理系统，不同的文件系统又有各自不同的逻辑组织方式。例如：常见的文件系统有FAT，NTFS，EXT，UFS，HFS+等等。下面就来学习一下基于Windows的FAT32文件系统。 FAT32文件系统由DBR及其保留扇区，FAT1，FAT2和DATA四个部分组成，其机构如下图：  这些结构是在分区被">
+<meta name="keywords" content="fat32">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fat32结构介绍">
+<meta property="og:url" content="http://bToTd.github.io/2018/09/25/fat32结构介绍/index.html">
+<meta property="og:site_name" content="bToTd">
+<meta property="og:description" content="硬盘是用来存储数据的，为了使用和管理方便，这些数据以文件的形式存储在硬盘上。任何操作系统都有自己的文件管理系统，不同的文件系统又有各自不同的逻辑组织方式。例如：常见的文件系统有FAT，NTFS，EXT，UFS，HFS+等等。下面就来学习一下基于Windows的FAT32文件系统。 FAT32文件系统由DBR及其保留扇区，FAT1，FAT2和DATA四个部分组成，其机构如下图：  这些结构是在分区被">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat.jpg">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat1.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat2.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat3.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat4.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat5.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat6.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat7.png">
+<meta property="og:updated_time" content="2018-09-25T14:39:27.218Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fat32结构介绍">
+<meta name="twitter:description" content="硬盘是用来存储数据的，为了使用和管理方便，这些数据以文件的形式存储在硬盘上。任何操作系统都有自己的文件管理系统，不同的文件系统又有各自不同的逻辑组织方式。例如：常见的文件系统有FAT，NTFS，EXT，UFS，HFS+等等。下面就来学习一下基于Windows的FAT32文件系统。 FAT32文件系统由DBR及其保留扇区，FAT1，FAT2和DATA四个部分组成，其机构如下图：  这些结构是在分区被">
+<meta name="twitter:image" content="http://btotd.github.io/2018/09/25/fat32结构介绍/fat.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bToTd.github.io/2018/09/25/fat32结构介绍/"/>
+
+
+
+
+
+  <title>fat32结构介绍 | bToTd</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">bToTd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">MwM</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/fat32结构介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pig.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bToTd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">fat32结构介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T21:57:28+08:00">
+                2018-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文件系统/" itemprop="url" rel="index">
+                    <span itemprop="name">文件系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>硬盘是用来存储数据的，为了使用和管理方便，这些数据以文件的形式存储在硬盘上。<br>任何操作系统都有自己的文件管理系统，不同的文件系统又有各自不同的逻辑组织方式。<br>例如：常见的文件系统有FAT，NTFS，EXT，UFS，HFS+等等。下面就来学习一下基于Windows<br>的FAT32文件系统。</p>
+<p>FAT32文件系统由DBR及其保留扇区，FAT1，FAT2和DATA四个部分组成，其机构如下图：</p>
+<img src="/2018/09/25/fat32结构介绍/fat.jpg" title="this is fat image">
+<p>这些结构是在分区被格式化时创建出来的，含义解释如下：</p>
+<p>DBR及其保留扇区：DBR的含义是DOS引导记录，也称为操作系统引导记录，在DBR之后往往会有一些保留扇区。</p>
+<p>FAT1：FAT的含义是文件分配表，FAT32一般有两份FAT，FAT1是第一份，也是主FAT。</p>
+<p>FAT2：FAT2是FAT32的第二份文件分配表，也是FAT1的备份。</p>
+<p>DATA：DATA也就是数据区，是FAT32文件系统的主要区域，其中包含目录区域。</p>
+<p><strong>一、分析FAT32文件系统的DBR</strong></p>
+<p>   FAT32文件系统的DBR有5部分组成，分别为跳转指令，OEM代号，BPB，引导程序和结束标志。如下图是<br>   我U盘上一个完整的FAT32文件系统的DBR。</p>
+<img src="/2018/09/25/fat32结构介绍/fat1.png" title="this is fat image">
+<p>E8 58 90 :(跳转指令) 本身占2字节它将程序执行流程跳转到引导程序处。</p>
+<p>“EB 58 90″清楚地指明了OS引导代码的偏移位置。jump 58H加上跳转指令所需的位移量，即开始于0x5A。</p>
+<p>4D 53 57 49 4E  34 2E 31 :(OEM代号) 这部分占8字节，其内容由创建该文件系统的OEM厂商具体安排。</p>
+<p>跳转指令之后是8字节长的OEM ID，它是一个字符串， OEM ID标识了格式化该分区的操作系统的名称和版本号。<br>为了保留与MS-DOS的兼容性，通常Windows 2000格式化该盘是在FAT16和FAT32磁盘上的该字段中记录了“MSDOS 5.0”，<br>在NTFS磁盘上(关于ntfs，另述)，Windows 2000记录的是“NTFS”。通常在被Windows 95格式化的磁盘上<br>OEM ID字段出现“MSWIN4.0”，在被Windows 95 OSR2和Windows 98格式化的磁盘上OEM ID字段出现“MSWIN4.1”。</p>
+<p>BPB：FAT32的BPB从DBR的第12个字节开始，占用79字节，记录了有关该文件系统的重要信息，各参数解释如下表：</p>
+<p>前面53个字节是BPB，后面26个字节是扩展BPB。</p>
+<img src="/2018/09/25/fat32结构介绍/fat2.png" title="this is fat image">
+<p>对照上面分析：</p>
+<p>02 00：每扇区512字节</p>
+<p>40：每簇64个扇区</p>
+<p>26 B0：保留9904个扇区</p>
+<p>02：FAT数</p>
+<p>00 00：根目录项数为0</p>
+<p>00 00：小扇区数为0</p>
+<p>F8：硬盘</p>
+<p>00 00：每FAT扇区数为0</p>
+<p>00 3F：每磁道63个扇区</p>
+<p>00 80：128磁头</p>
+<p>00 00 1F 80：隐藏扇区8064</p>
+<p>03 A8 E4 00：总共61400064个扇区</p>
+<p>00 00 1D 48：每个FAT有7496个扇区</p>
+<p>00：扩展标志</p>
+<p>00 00：文件系统版本</p>
+<p>00 00 00 02：根目录簇号2</p>
+<p>00 01：文件系统信息扇区号</p>
+<p>00 08：备份引导扇区</p>
+<p>后12个字节为0：保留</p>
+<p>00：软盘驱动器</p>
+<p>01：未知</p>
+<p>29：扩展引导标签</p>
+<p>78 7B 52 18：分区引导序号</p>
+<p>4B 49 4E 47 53 54 4F 4E 20 20 20:卷标KINGSTON</p>
+<p>46 41 54 33 32 20 20 20：系统ID  FAT32</p>
+<p>FAT32文件系统在DBR的保留扇区中安排了一个文件系统信息扇区，用以记录数据区中空闲簇的数量<br>及下一个空闲簇的簇号，该扇区一般在分区的1号扇区，也就是紧跟着DBR后的一个扇区，其内容如下：</p>
+<img src="/2018/09/25/fat32结构介绍/fat3.png" title="this is fat image">
+<p>52 52 61 41：扩展引导标签</p>
+<p>接下来的480个字节：未用</p>
+<p>72 72 41 61：文件系统信息签名</p>
+<p>00 02 07 9E：空闲簇数</p>
+<p>00 00 01 8F：下一个空闲簇的簇号</p>
+<p>接下来的14个字节：未用</p>
+<p>55 AA：结束标志</p>
+<p>引导程序代码：FAT32的DBR引导程序占用420字节，对于没有安装操作系统的分区来说这段程序是没有用处的。</p>
+<p>结束标志：DBR的结束标志与MBR，EBR的结束标志相同，为“55 AA”。</p>
+<p><strong>二、分析FAT32文件系统的FAT表</strong></p>
+<p>从FAT32的组织形式来看FAT1在保留扇区（包括引导扇区）的后面，然后就是FAT2.</p>
+<p>所以我们在加上保留扇区的数量来到FAT1的第一个扇区：</p>
+<p>FAT文件系统之所以有12，16，32不同的版本之分，其根本在于FAT表用来记录任意一簇链接的二进制位数。<br>以FAT16为例，每一簇在FAT表中占据2字节(二进制16位)。所以，FAT16最大可以表示的簇号为0xFFFF(十进制的65535)，<br>以32K（最多只支持64个扇区）为簇的大小的话，FAT16可以管理的最大磁盘空间为：32KB×65535=2048MB,<br>    这就是为什么FAT16不支持超过2GB分区的原因（DOS下）。</p>
+<p>FAT表结构及作用</p>
+<p>1、FAT32文件一般有两份FAT，他们由格式化程序在对分区进行格式化时创建，FAT1是主，FAT2是备份。</p>
+<p>2、FAT1跟在DBR之后，其具体地址由DBR的BPB参数中指定，FAT2跟在FAT1的后面。</p>
+<p>3、FAT表由FAT表项构成，我们把FAT表项简称FAT项，每个FAT项占用4字节。</p>
+<p>4、每个FAT项都有一个固定的编号，这个编号从0开始。</p>
+<p>5、FAT表项的前两个FAT项为文件系统保留使用，0号FAT为介质类型，1号FAT为文件系统错误标志。</p>
+<p>6、分区的数据区中每个簇都会映射到FAT表中的唯一一个FAT项，因为0号FAT和1号FAT被系统占用，<br>用户的数据从2号FAT开始记录。</p>
+<p>7、如果某个文件占用很多个簇，则第一个FAT项记录下一个FAT项的编号（既簇号），如果这个文件结束了，<br>则用“0F FF FF FF”表示。</p>
+<p>8、分区格式化后，用户文件以簇为单位存放在数据区中，一个文件至少占用一个簇。</p>
+<p>9、FAT的主要作用是标明分区存储的介质以及簇的使用情况。</p>
+<p>定位FAT绝对位置的方法如下：</p>
+<p>1、首先从MBR的分区表中得知分区的起始扇区，偏移到此扇区。</p>
+<p>2、从DBR的BPB中得知DBR的保留扇区数，FAT表的个数，FAT表的大小。</p>
+<p>3、因此FAT1=分区起始扇区+DBR保留扇区，FAT2=分区起始扇区+DBR保留扇区+FAT1。</p>
+<p>下图为FAT1的第一个扇区：</p>
+<img src="/2018/09/25/fat32结构介绍/fat4.png" title="this is fat image">
+<p>上面是从第0项开始的，第0项和第1项暂时就不用看了，从第2项开始，为0F FF FF FF，表示这是一个<br>小文件，只占用一个簇就结束了，然后第3、4项也是的。</p>
+<p>第5簇中存放的数据是6，这又是一个文件或文件夹的首簇。其内容为第6簇，就是说接下来的簇位于第6簇——〉<br>FAT表指引我们到达FAT表的第6簇指向，上面写的数据是7，就是说接下来的<br>簇位于第7簇——〉FAT表指引我们到达FAT表的第7簇指向……直到根据FAT链读取到扇区<br>相对偏移0×20~0×24，也就是第8簇，上面写的数据是9，也就是指向第9簇——〉第9簇的内容为”0F FF FF FF”，<br>意即此文件已至尾簇。</p>
+<p>下面的同样的分析方法，我就不一一分析了。</p>
+<p><strong>三、分析FAT32文件系统的数据区</strong></p>
+<p>数据区的位置在FAT2的后面，具体定位方式如下；</p>
+<p>1、通过MBR中的分区表信息得知分区的起始位置。</p>
+<p>2、通过分区中DBR得知DBR的保留扇区数以及FAT表的大小，FAT表的个数。</p>
+<p>3、通过上面的信息就可以找到数据区的起始位置，</p>
+<p><strong>数据区 = 隐藏扇区数+DBR保留扇区+（每个FAT表扇区数*2 )</strong>。</p>
+<p>数据区的类容主要由三部分组成：根目录，子目录和文件内容。在数据区中是以“簇”为单位进行存储的，<br>2号簇被分配给根目录使用。</p>
+<p>根据簇号得到在FAT中的扇区号和偏移：</p>
+<p>​    扇区号 = 簇号*4/每个扇区的字节数 + 隐藏扇区数 + 保留扇区数</p>
+<p>​    扇区偏移 = 簇号*4%每个扇区的字节数</p>
+<p>根据簇号得到起始扇区号：</p>
+<p>​    簇号起始扇区 = （簇号-2）<em> 每个簇的扇区数 + 隐藏扇区数 + 保留扇区数 + FAT数</em>每个FAT占扇区数</p>
+<p>下图为根目录的第一个扇区</p>
+<img src="/2018/09/25/fat32结构介绍/fat5.png" title="this is fat image">
+<p>FAT32文件系统中，分区根目录下的文件和目录都放在根目录区中，子目录中的文件和目录都放在子目录区中，<br>并且每32个字节为一个目录项（FDT），每个目录项纪录着一个目录或文件（也可能是多个目录项记录一个文件或目录），<br>如上图所示就是一个目录项。</p>
+<p>在FAT32文件系统中，目录项可以分为四类：卷标目录项、“.”和“..”目录项、短文件名目录项、长文件名目录项。</p>
+<p>卷标目录项：卷标就是分区的名字，可以在格式化分区时创建，也可以随意修改，长度为11字节。</p>
+<p>“.”和“..”目录项：“.”表示当前目录，“..”表示上一层目录。这两个目录项多存在子目录中。</p>
+<p>短文件名目录项：所谓短文件名既文件名的“8.3”格式，此格式支持主文件名不能超过8字节，<br>扩展名不能超过3字节。短文件名目录始终存放在一个目录项中。</p>
+<p>FDT第1字节又表明了该文件的状态，它有如下四种取值方式：<br>a.   00H–目录项的空目录。<br>b.   E5H–表示该目录项曾经使用过，但文件已被删除。<br>c.   2EH–表示子目录下的两个特殊文件 “. “或 “.. “目录项<br>d.   其它任何字符–表示一个文件名(或目录名)的第一个字符的ASCII码值.</p>
+<p>FAT第0xB个字节可以判别是长文件目录项还是短文件目录项。</p>
+<p>FAT32短文件目录项32个字节的表示定义如下：</p>
+<img src="/2018/09/25/fat32结构介绍/fat6.png" title="this is fat image">
+<p>正如上面的第一个FDT就是一个短文件目录项：</p>
+<p>文件名为GAMES</p>
+<p>关于时间的表达方式：10111(23)   111000(56)   00001(1*2)时间值：23时56分02秒。</p>
+<p>关于日期的表达方式：0011101(29+1980)   1010(10)   10011(19)时间值：2009年10月19日。</p>
+<p>长文件名目录项：由于短文件名“8.3”的格式远远不能满足现实中的需求，所以就出现了长文件名。</p>
+<p>FAT32长文件目录项32个字节的表示定义如下：</p>
+<img src="/2018/09/25/fat32结构介绍/fat7.png" title="this is fat image">
+<p>根据表中的长文件名组合方法我们可以得到上面根目录的第一个扇区中第7个FDT的长文件名为：urDrive</p>
+<p>如果是目录的话可以转到起始簇号在FAT1中的位置，然后转到相应的扇区分析FDT来枚举文件信息。</p>
+<p>使用工具：winhex</p>
+<p>转载这个文章: <a href="http://www.blogfshare.com/detail-fat32-filesys.html" target="_blank" rel="noopener">http://www.blogfshare.com/detail-fat32-filesys.html</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="chuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>ex. subscribe to my blog by scanning my public wechat account</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/fat32/" rel="tag"># fat32</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/25/sdl2-001/" rel="next" title="sdl2学习笔记">
+                <i class="fa fa-chevron-left"></i> sdl2学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/26/fat32-long-file-name/" rel="prev" title="fat32 长文件名结构">
+                fat32 长文件名结构 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/pig.jpeg"
+                alt="chuan" />
+            
+              <p class="site-author-name" itemprop="name">chuan</p>
+              <p class="site-description motion-element" itemprop="description">行走在万壑深渊的铁锁桥，每一步都要非常小心，细微的风吹草动都可能使你掉下深渊</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bToTd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:whuan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://panda-0129.github.io" title="bobo" target="_blank">bobo</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

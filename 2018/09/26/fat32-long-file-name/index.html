@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="生活无奈," />
+  <meta name="keywords" content="fat32," />
 
 
 
@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="实习也算一个月了，什么都不懂，很无奈，很痛苦。而且情绪的发泄地，抗吧被封了把痛苦，矛盾的心情留在心里贼难受。情绪还是要有地方发泄的，所以再一次来弄这个个人博客，把傻逼的话写在这。 实习中，真真正正了明白了自己到底有多垃圾，妈个蛋的，怎么会有这么菜的人。就像以前玩游戏时觉得自己和别人菜一样。还有，就是深切的感受到了未来一片迷茫的，黯淡的人生，没有目标，不知道自己今后的路要怎么走。每个人都想成为技术大">
-<meta name="keywords" content="生活无奈">
+<meta name="description" content="长目录项文件匹配文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669长文件名的处理在FAT32的directory entry里，所预留的文件名的长度是8.3格式的，也就是说，文件名是8个字符，后缀名是3个字符，长于这个的就被认为不合法。不太确定这个规定是从FAT12开始的，还是从FAT16开始的，总之在FAT32里依旧">
+<meta name="keywords" content="fat32">
 <meta property="og:type" content="article">
-<meta property="og:title" content="嗨～生活">
-<meta property="og:url" content="http://bToTd.github.io/2018/09/22/ToT/index.html">
+<meta property="og:title" content="fat32 长文件名结构">
+<meta property="og:url" content="http://bToTd.github.io/2018/09/26/fat32-long-file-name/index.html">
 <meta property="og:site_name" content="bToTd">
-<meta property="og:description" content="实习也算一个月了，什么都不懂，很无奈，很痛苦。而且情绪的发泄地，抗吧被封了把痛苦，矛盾的心情留在心里贼难受。情绪还是要有地方发泄的，所以再一次来弄这个个人博客，把傻逼的话写在这。 实习中，真真正正了明白了自己到底有多垃圾，妈个蛋的，怎么会有这么菜的人。就像以前玩游戏时觉得自己和别人菜一样。还有，就是深切的感受到了未来一片迷茫的，黯淡的人生，没有目标，不知道自己今后的路要怎么走。每个人都想成为技术大">
+<meta property="og:description" content="长目录项文件匹配文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669长文件名的处理在FAT32的directory entry里，所预留的文件名的长度是8.3格式的，也就是说，文件名是8个字符，后缀名是3个字符，长于这个的就被认为不合法。不太确定这个规定是从FAT12开始的，还是从FAT16开始的，总之在FAT32里依旧">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-24T15:38:03.604Z">
+<meta property="og:image" content="http://btotd.github.io/2018/09/26/fat32-long-file-name/long1.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/26/fat32-long-file-name/long2.png">
+<meta property="og:image" content="http://btotd.github.io/2018/09/26/fat32-long-file-name/long3.png">
+<meta property="og:updated_time" content="2018-09-26T02:13:41.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="嗨～生活">
-<meta name="twitter:description" content="实习也算一个月了，什么都不懂，很无奈，很痛苦。而且情绪的发泄地，抗吧被封了把痛苦，矛盾的心情留在心里贼难受。情绪还是要有地方发泄的，所以再一次来弄这个个人博客，把傻逼的话写在这。 实习中，真真正正了明白了自己到底有多垃圾，妈个蛋的，怎么会有这么菜的人。就像以前玩游戏时觉得自己和别人菜一样。还有，就是深切的感受到了未来一片迷茫的，黯淡的人生，没有目标，不知道自己今后的路要怎么走。每个人都想成为技术大">
+<meta name="twitter:title" content="fat32 长文件名结构">
+<meta name="twitter:description" content="长目录项文件匹配文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669长文件名的处理在FAT32的directory entry里，所预留的文件名的长度是8.3格式的，也就是说，文件名是8个字符，后缀名是3个字符，长于这个的就被认为不合法。不太确定这个规定是从FAT12开始的，还是从FAT16开始的，总之在FAT32里依旧">
+<meta name="twitter:image" content="http://btotd.github.io/2018/09/26/fat32-long-file-name/long1.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://bToTd.github.io/2018/09/22/ToT/"/>
+  <link rel="canonical" href="http://bToTd.github.io/2018/09/26/fat32-long-file-name/"/>
 
 
 
 
 
-  <title>嗨～生活 | bToTd</title>
+  <title>fat32 长文件名结构 | bToTd</title>
   
 
 
@@ -263,7 +267,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/22/ToT/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/26/fat32-long-file-name/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -280,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">嗨～生活</h1>
+          <h1 class="post-title" itemprop="name headline">fat32 长文件名结构</h1>
         
 
         <div class="post-meta">
@@ -292,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T15:21:40+08:00">
-                2018-09-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T09:41:38+08:00">
+                2018-09-26
               </time>
             
 
@@ -302,6 +306,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文件系统/" itemprop="url" rel="index">
+                    <span itemprop="name">文件系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,10 +356,58 @@
       
 
       
-        <p>实习也算一个月了，什么都不懂，很无奈，很痛苦。而且情绪的发泄地，抗吧被封了<br>把痛苦，矛盾的心情留在心里贼难受。情绪还是要有地方发泄的，所以再一次来弄这<br>个个人博客，把傻逼的话写在这。</p>
-<p>实习中，真真正正了明白了自己到底有多垃圾，妈个蛋的，怎么会有这么菜的人。就<br>像以前玩游戏时觉得自己和别人菜一样。还有，就是深切的感受到了未来一片迷茫的，<br>黯淡的人生，没有目标，不知道自己今后的路要怎么走。每个人都想成为技术大牛，但是<br>，该怎么样才能成为技术大牛呢？路该怎么走呢？</p>
-<p>很迷茫啊！！！！！！！！</p>
-<p>我现在就想能够平平凡凡的活着。</p>
+        <h3 id="长目录项文件匹配"><a href="#长目录项文件匹配" class="headerlink" title="长目录项文件匹配"></a>长目录项文件匹配</h3><h3 id="文章转载于这里：https-blog-csdn-net-zeewee1986-article-details-41810669"><a href="#文章转载于这里：https-blog-csdn-net-zeewee1986-article-details-41810669" class="headerlink" title="文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669"></a>文章转载于这里：<a href="https://blog.csdn.net/zeewee1986/article/details/41810669" target="_blank" rel="noopener">https://blog.csdn.net/zeewee1986/article/details/41810669</a></h3><h3 id="长文件名的处理"><a href="#长文件名的处理" class="headerlink" title="长文件名的处理"></a>长文件名的处理</h3><p>在FAT32的directory entry里，所预留的文件名的长度是8.3格式的，也就是说，文件名是8个字符，<br>后缀名是3个字符，长于这个的就被认为不合法。不太确定这个规定是从FAT12开始的，<br>还是从FAT16开始的，总之在FAT32里依旧有这个限制的影子，但FAT32同样也有机制去<br>处理更长的文件名。</p>
+<p>下面是按照第一篇文章一样的方式创建出来的FAT32文件格式的image文件，然后在里面创建<br>一个名字巨长无比的文件，就叫abcdefghijklmnopqrstuvwxyz.txt1234吧，这个是远远突破了<br>8.3格式的要求了，下面是它在FAT32 image里的样子，如图：</p>
+<img src="/2018/09/26/fat32-long-file-name/long1.png" title="fat32-long-name-1">
+<p>至于为什么会找到0x9e000这个地址，请看FAT32学习笔记（一）里的介绍。</p>
+<p>从这个截图里可以看到，在0x9e060的地方和文件名非常相似，所不同的是创建的文件名是小写，<br>而image里所存储的却是大写，而且，在不考虑长文件名支持的情况下，这个文件读出来会是”ABCDEF~1.TXT”，<br>相信很多人都会有一种特别熟悉的感觉，尤其是这个“xxxx~1.xxx”中的“~1”。<br>接下来就是FAT32中对长文件名的格式定义：</p>
+<p>在data area里，每32 Bytes是一个directory entry。其中，</p>
+<p>offset 0x0 - 0xA是DIR_name，前8个bytes是文件名，后3个bytes是后缀；</p>
+<p>offset 0xB是DIR_attr，该bytes上每个bit的定义如下：</p>
+<p>ATTR_READ_ONLY，0x01</p>
+<p>ATTR_HIDDEN，0x02</p>
+<p>ATTR_SYSTEM，0x04</p>
+<p>ATTR_VOLUME_ID，0x08</p>
+<p>ATTR_DIRECTORY，0x10</p>
+<p>ATTR_ARCHIVE，0x20<br>ATTR_LONG_NAME, ATTR_READ_ONLY | ATTR_HIDDEN | ATTR_SYSTEM | ATTR_VOLUME_ID</p>
+<p>offset 0xC，reserved</p>
+<p>offset 0xD，DIR_CrtTimerTenth，表示文件创建时间的，这里不太关心，所以不详细解释</p>
+<p>offset 0xE - 0xF, DIR_CrtTime,</p>
+<p>offset 0x10 - 0x11, DIR_CrtDate,</p>
+<p>offset 0x12 - 0x13, DIR_LstAccDate,</p>
+<p>offset 0x14 - 0x15, DIR_FstCusHI，表示该文件内容所在的簇的高2个bytes，它将和DIR_FstClusLO一起<br>凑成一个4bytes的数，在这个簇里就能找到该文件的内容。</p>
+<p>offset 0x16 - 0x17, DIR_WrtTime，</p>
+<p>offset 0x18 - 0x19，DIR_WrtDate，</p>
+<p>offset 0x1A - 0x1B，DIR_FstClusLO，和前面的DIR_FstCusHI一起作为文件内容的寻址数。</p>
+<p>offset 0x1C - 0x1F，DIR_FileSize，文件大小。</p>
+<p>注意offset 0xB，DIR_Attr，如果这里是0xF，就表示该entry是LONG_NAME的一部分，此时<br>它的bytes含义就会发生变化</p>
+<p>LONG_NAME部分的directory entry Bytes定义如下：</p>
+<p>offset 0x0，LDIR_Ord，表明该entry在一串LONG_NAME entry中的顺序。如果bit6为1，则该<br>串LONG_NAME entry以这个entry结束。</p>
+<p>offset 0x1 - 0xA, LDIR_Name1，全部是character，</p>
+<p>offset 0xB，LDIR_Attr，必须是ATTR_LONG_NAME，</p>
+<p>offset 0xC, LDIR_Type，如果为0，表明该entry是LONG_NAME entry的一部分，</p>
+<p>offset 0xD, LDIR_Chksum，校验和</p>
+<p>offset 0xE - 0x19, LDIR_Name2,全部是character，</p>
+<p>offset 0x1A - 0x1B，LDIR_FstClusLO，在LONG_NAME entry里没有意义，它存在的意义只是用来和老的tool兼容，</p>
+<p>offset 0x1C - 0x1F，LDIR_Name3，全部是character。</p>
+<p>在了解了长文件名directory entry的定义之后，就很容易从刚才的截图中看出来<br>“abcdefghijklmnopqrstuvwxyz.txt1234”是如何存储在FAT32 image里的了。<br>下图是一个简单的总结：</p>
+<img src="/2018/09/26/fat32-long-file-name/long2.png" title="fat32-long-name-2">
+<p>##文件内容的查找</p>
+<p>在上图中，用黄色表示出来的会组成一个4 bytes的数，图中会组合成0x00000003，表示该entry所表示的文件，<br>它的内容在簇3里，也就是第一幅图中，0x9e200的部分。至于簇3的地址如何计算，还请参考FAT32学习笔记（一）<br>里的内容。<br>目录的处理<br>使用如下命令在FAT32 image里创建一个目录，就能很清楚的知道“目录”这个东东到底是怎么一回事了</p>
+<p>sudo mount test.img /mnt/</p>
+<p>cd /mnt/</p>
+<p>sudo mkdir test</p>
+<p>cd /test</p>
+<p>touch 1.txt</p>
+<p>touch 2.txt</p>
+<p>echo abcdefg &gt;&gt; 1.txt</p>
+<p>echo 1234567 &gt;&gt; 2.txt</p>
+<p>cd /tmp</p>
+<p>sudo umount /mnt/</p>
+<p>hexdump -C test.img</p>
+<p>得到如下结果：</p>
+<img src="/2018/09/26/fat32-long-file-name/long3.png" title="fat32-long-name-3">
+<p>从0x9e080开始，是这次新创建的test目录，还是按照刚才的长文件名的处理方式，能够知道该目录的内容<br>在簇4里，也就是0x9e400的地方。在0x9e400的地方，同样的按照长文件名的处理方式，能够找出来如下<br>的directory entry：<br>0x9e400，一个directory entry，表示的目录是“.”，从该directory entry里可以看到，它的内容在簇4里，<br>也就是本身，因此，目录“.”表示当前目录。<br>0x9e420，一个directory entry，表示的目录是“..”，从该directory entry里可以找到它的内容在簇0里，<br>然而，在FAT32规范里，Data Area是从簇2开始的，到底如何处理有待研究。<br>0x9e440，两个directory entry，表示文件1.txt，它的内容在簇5里，也就是0x9e600。<br>0x9e480，两个directory entry，表示文件2.txt，它的内容在簇6里，也就是0x9e800。<br>按照对应的地址去找，都能看到相应的内容。<br>这里还有另外一个问题：目录“.”和目录“..”是FAT32规范的内容，还是Linux自己所定义的？在windows的系<br>统里，应该是没有这样的内容的。等下次在windows系统里用U盘做实验，拿到ubuntu上来观察就可以解答这<br>个疑惑了。到时候再更新这篇文章。<br>（还有另外一个方式，把这个test.img放到host machine，挂载到windows的虚拟机上，这样就不需要U盘了。<br>而且，我的U盘用了好久，里面全都被写满了，看起来好凌乱啊，没有这种image看起来清晰）。</p>
 
       
     </div>
@@ -359,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活无奈/" rel="tag"># 生活无奈</a>
+            <a href="/tags/fat32/" rel="tag"># fat32</a>
           
         </div>
       
@@ -372,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/09/25/fat32结构介绍/" rel="next" title="fat32结构介绍">
+                <i class="fa fa-chevron-left"></i> fat32结构介绍
               </a>
             
           </div>
@@ -381,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/24/ToT-1/" rel="prev" title="暗">
-                暗 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -436,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,6 +610,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#长目录项文件匹配"><span class="nav-number">1.</span> <span class="nav-text">长目录项文件匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章转载于这里：https-blog-csdn-net-zeewee1986-article-details-41810669"><span class="nav-number">2.</span> <span class="nav-text">文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长文件名的处理"><span class="nav-number">3.</span> <span class="nav-text">长文件名的处理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
