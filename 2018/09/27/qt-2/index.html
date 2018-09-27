@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="bToTd">
 <meta property="og:description" content="QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用也很简单，直接调用这两个类给的接口就可以了，代码如下// 先把两个类 include 进来 #include &amp;lt;QTree&amp;gt;#include &amp;lt;QFileSystemModel&amp;gt;// 在你想要加的位置加上下面代码    QFileSystemModel * model = new">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T08:25:29.708Z">
+<meta property="og:updated_time" content="2018-09-27T15:26:42.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QTree 和 QFileSystemModel 显示文件树">
 <meta name="twitter:description" content="QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用也很简单，直接调用这两个类给的接口就可以了，代码如下// 先把两个类 include 进来 #include &amp;lt;QTree&amp;gt;#include &amp;lt;QFileSystemModel&amp;gt;// 在你想要加的位置加上下面代码    QFileSystemModel * model = new">
@@ -355,6 +355,9 @@
         <p>QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用<br>也很简单，直接调用这两个类给的接口就可以了，代码如下<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 先把两个类 include 进来 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTree&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在你想要加的位置加上下面代码</span></span><br><span class="line">    QFileSystemModel * model = <span class="keyword">new</span> QFileSystemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line">    QTreeView *tree = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    tree-&gt;setModel(model);</span><br></pre></td></tr></table></figure></p>
 <p>通过上面代码就可以简单的将目录以树的形式显示出来。但是这样的显示是直接把目录项的<br>所有信息都列出来，不仅仅是文件名，还有各种属性也都显示出来。<br>  可是这个不是我先要的效果，我仅仅只是想把文件名列出来，不要其他任何的消息。</p>
 <p>  于是乎，我在网上找到了这个URL：<a href="https://bbs.csdn.net/topics/390441119" target="_blank" rel="noopener">https://bbs.csdn.net/topics/390441119</a><br>  这里面告诉了我们解决方法<br>  第一，自己写一个子类继承QFileSystemModel这个类<br>  然后，改一下<br>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QVariant QFileSystemModel::data ( <span class="keyword">const</span> QModelIndex &amp; index, <span class="keyword">int</span> role = Qt::DisplayRole ) <span class="keyword">const</span> [<span class="keyword">virtual</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者下面这个</span></span><br><span class="line">columnCount(<span class="keyword">const</span> QModelIndex &amp;parent)<span class="keyword">const</span>方法就可以达到目的了.</span><br></pre></td></tr></table></figure></p>
+<p>唉，但是水平有限，只能再次求助万能的网友了，这样，我又一次找到了一个神奇的<br>URL：<a href="https://blog.csdn.net/snail_hunan/article/details/75250992" target="_blank" rel="noopener">https://blog.csdn.net/snail_hunan/article/details/75250992</a></p>
+<h3 id="修改QFileSystemModel"><a href="#修改QFileSystemModel" class="headerlink" title="修改QFileSystemModel"></a>修改QFileSystemModel</h3><p>  写一个子类，继承自QFileSystemModel，然后在需要显示size,type,modified的地方，把这些信息屏蔽掉。<br>我知道Qt的Model显示数据，主要是在data这个函数中，然后Model的列是通过columnCount这个函数返回的。<br>所以我重写columnCount函数，只返回一列，这一列就是我们想要的名称。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtGui/QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTreeView&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFileSytemModel</span> :</span> <span class="keyword">public</span> QFileSystemModel</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//第1列显示名称，其他几列都屏蔽掉</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">columnCount</span><span class="params">(<span class="keyword">const</span> QModelIndex &amp;parent)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    MyFileSytemModel* model = <span class="keyword">new</span> MyFileSytemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line"></span><br><span class="line">    QTreeView* treeView = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    treeView-&gt;setModel(model);</span><br><span class="line">    treeView-&gt;setRootIndex(model-&gt;index(QDir::currentPath()));</span><br><span class="line">    treeView-&gt;show();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改TreeView"><a href="#修改TreeView" class="headerlink" title="修改TreeView"></a>修改TreeView</h3><p>如果我能把TreeView的第2，3，4列隐藏，也可以达到我想要的效果。结果还真被我发现了QTreeView中有个函数角<br>setColumnHidden，使用这个函数即可。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtGui/QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTreeView&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    QFileSystemModel* model = <span class="keyword">new</span> QFileSystemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line"></span><br><span class="line">    QTreeView* treeView = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    treeView-&gt;setModel(model);</span><br><span class="line">    treeView-&gt;setRootIndex(model-&gt;index(QDir::currentPath()));</span><br><span class="line">    treeView-&gt;show();</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">3</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -457,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,6 +564,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改QFileSystemModel"><span class="nav-number">1.</span> <span class="nav-text">修改QFileSystemModel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改TreeView"><span class="nav-number">2.</span> <span class="nav-text">修改TreeView</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
