@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="bToTd">
 <meta property="og:description" content="python中的数据类型有数字，字符串，列表，元组，字典，集合等。python数据类型都是封装得很好的类。因此这些数据类型中包含着很多功能的方法，下面介绍一些我用过的一些数据类型的方法，python的内建函数都有很详细的说明文档，可以通过阅读这些文档了解函数的使用方法。 数字数据类型数字类型包括整数类型，单精度浮点数，双精度浮点数，以及大数字类型。python是动态语言，与静态编程语言相比，变量的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T12:16:09.770Z">
+<meta property="og:updated_time" content="2018-09-28T12:13:16.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python的基本数据类型">
 <meta name="twitter:description" content="python中的数据类型有数字，字符串，列表，元组，字典，集合等。python数据类型都是封装得很好的类。因此这些数据类型中包含着很多功能的方法，下面介绍一些我用过的一些数据类型的方法，python的内建函数都有很详细的说明文档，可以通过阅读这些文档了解函数的使用方法。 数字数据类型数字类型包括整数类型，单精度浮点数，双精度浮点数，以及大数字类型。python是动态语言，与静态编程语言相比，变量的">
@@ -354,9 +354,413 @@
       
         <p>python中的数据类型有数字，字符串，列表，元组，字典，集合等。python数据类型都是封装得<br>很好的类。因此这些数据类型中包含着很多功能的方法，下面介绍一些我用过的一些数据类型的<br>方法，python的内建函数都有很详细的说明文档，可以通过阅读这些文档了解函数的使用方法。</p>
 <h4 id="数字数据类型"><a href="#数字数据类型" class="headerlink" title="数字数据类型"></a>数字数据类型</h4><p>数字类型包括整数类型，单精度浮点数，双精度浮点数，以及大数字类型。python是动态语言，<br>与静态编程语言相比，变量的定义更加的灵活。数字类型中基本我所用过的就是将字符串转换为数字。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"1234"</span></span><br><span class="line">b = int(a)  <span class="comment"># 将字符串类型转换为数字类型</span></span><br><span class="line"></span><br><span class="line">num =  int(num, base = <span class="number">8</span>)  <span class="comment"># base规定进制转换，默认值为10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="string">"1234"</span></span><br><span class="line">b = int(a)  <span class="comment"># 将字符串类型转换为数字类型</span></span><br><span class="line"></span><br><span class="line">num =  int(num, base = <span class="number">8</span>)  <span class="comment"># base规定进制转换，默认值为10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bit_lenght</span></span><br><span class="line"><span class="comment"># 当前数字的二进制至少用几位来表示</span></span><br><span class="line">r = a.bit_lenght()</span><br></pre></td></tr></table></figure>
 <h4 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h4><p>python的字符串定义是用单引号或者双引号来判别，字符串类型的方法很丰富，基本能想到的<br>关于字符串的操作都包括在内了。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># str类型的方法</span></span><br><span class="line">test_str = <span class="string">"python"</span></span><br><span class="line"><span class="comment"># 转换为大写</span></span><br><span class="line">test_str = test_str.upper()</span><br><span class="line"><span class="comment"># 转换为小写</span></span><br><span class="line">test_str = test_str.lower()</span><br><span class="line"></span><br><span class="line">test_str = <span class="string">"   python   "</span></span><br><span class="line"><span class="comment"># 去空格</span></span><br><span class="line">test_str = test_str.strip()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># str类型的方法</span></span><br><span class="line">test_str = <span class="string">"python"</span></span><br><span class="line"><span class="comment"># 转换为大写</span></span><br><span class="line">test_str = test_str.upper()</span><br><span class="line"><span class="comment"># 转换为小写有两种方法，一个是lower，一个是casefold，casefold更加厉害，范围更大</span></span><br><span class="line">test_str = test_str.lower()</span><br><span class="line"></span><br><span class="line">test_str = <span class="string">"   python   "</span></span><br><span class="line"><span class="comment"># 去空格</span></span><br><span class="line">test_str = test_str.strip()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将首字母转为大写</span></span><br><span class="line">v = test_str.capitalize()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置宽度，并将内容居中</span></span><br><span class="line"><span class="comment"># center(n, *)  n 表示总长度， * 是空白处填的字符</span></span><br><span class="line">v = test_str.center(<span class="number">30</span>, <span class="string">'#'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置宽度，内容左对齐</span></span><br><span class="line">v = test_str.ljust(<span class="number">30</span>, <span class="string">"#"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置宽度，内容右对齐</span></span><br><span class="line">v = test_str.rjust(<span class="number">30</span>, <span class="string">"#"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在字符串中匹配子字符串出现的次数</span></span><br><span class="line">test = <span class="string">"abcbcbcbcbd"</span></span><br><span class="line">v = test.count(<span class="string">"bc"</span>)</span><br><span class="line"><span class="comment"># 也可以指定寻找的范围count(substr, startIndex, endIndex)</span></span><br></pre></td></tr></table></figure>
+<pre><code>4. print(&quot;sdf&quot;)
+
+5. inp = input(&apos;&gt;&gt;&gt;&apos;)
+
+    PS:
+        &gt;&gt;&gt; hello
+        inp = &quot;hello&quot;
+
+
+        &gt;&gt;&gt; 10
+        inp = &quot;10&quot;
+
+        # 如果将字符串转换成数字     new_inp = int(inp)
+
+        inp * 10 =????? 
+
+
+6. 变量名
+
+    字母
+    数字
+    下划线
+
+    要求：
+        不能数字开头
+        不能使用关键字
+        建议不要用python内置的。。。。
+
+7. 条件语句
+    1. 基本
+    2. 嵌套
+    3. if   elif   else ...
+
+8. while循环
+    while 条件：
+        ....
+
+    print(&apos;...&apos;)
+
+    补充：
+        a. while else
+        b. continue   break
+           continue ,终止当前循环，开始下一次循环
+           break    ,终止所有循环
+
+用户登陆（三次机会重试）
+count = 0
+while count &lt; 3:
+    user = input(&apos;&gt;&gt;&gt;&apos;)
+    pwd = input(&apos;&gt;&gt;&gt;&apos;)
+    if user == &apos;alex&apos; and pwd == &apos;123&apos;:
+        print(&apos;欢迎登陆&apos;)
+        print(&apos;..........&apos;)
+        break
+    else:
+        print(&apos;用户名或者密码错误&apos;)
+    count = count + 1
+</code></pre><p>今日内容：</p>
+<p>python开发IDE： pycharm、eclipse</p>
+<p>1、运算符<br>    结果是值<br>        算数运算<br>            a = 10 * 10<br>        赋值运算<br>            a = a + 1    a+=1</p>
+<pre><code>结果是布尔值
+    比较运算
+        a = 1 &gt; 5
+    逻辑运算
+        a = 1&gt;6 or 1==1
+    成员运算
+        a = &quot;蚊&quot; in &quot;郑建文&quot;
+</code></pre><p>2、基本数据类型</p>
+<p>数字  int ，所有的功能，都放在int里<br>    a1 = 123<br>    a1 = 456</p>
+<pre><code>- int
+    将字符串转换为数字
+        a = &quot;123&quot;
+        print(type(a),a)
+
+        b = int(a)
+        print(type(b),b)
+
+        num = &quot;0011&quot; 
+        v = int(num, base=16)
+        print(v)
+- bit_lenght
+        # 当前数字的二进制，至少用n位表示
+        r = age.bit_length()
+</code></pre><p>字符串  str</p>
+<pre><code>###########################################
+
+# 1 首字母大写
+    # test = &quot;aLex&quot;
+    # v = test.capitalize()
+    # print(v)
+
+# 2 所有变小写，casefold更牛逼，很多未知的对相应变小写
+    # v1 = test.casefold()
+    # print(v1)
+    # v2 = test.lower()
+    # print(v2)
+
+# 3 设置宽度，并将内容居中
+    # 20 代指总长度
+    # *  空白未知填充，一个字符，可有可无
+    # v = test.center(20,&quot;中&quot;)
+    # print(v)
+
+    # test = &quot;alex&quot;
+    # v = test.ljust(20,&quot;*&quot;)
+    # print(v)
+
+    # test = &quot;alex&quot;
+    # v = test.rjust(20,&quot;*&quot;)
+    # print(v)
+
+    # test = &quot;alex&quot;
+    # v = test.zfill(20)
+    # print(v)
+
+
+# 4 去字符串中寻找，寻找子序列的出现次数
+    # test = &quot;aLexalexr&quot;
+    # v = test.count(&apos;ex&apos;)
+    # print(v)
+
+    # test = &quot;aLexalexr&quot;
+    # v = test.count(&apos;ex&apos;,5,6)
+    # print(v)
+
+# 欠
+# encode
+# decode
+
+# 5
+    # 以什么什么结尾
+    # 以什么什么开始
+    # test = &quot;alex&quot;
+    # v = test.endswith(&apos;ex&apos;)
+    # v = test.startswith(&apos;ex&apos;)
+    # print(v)
+
+# 6 expandtabs,断句20，
+    # test = &quot;username\temail\tpassword\nlaiying\tying@q.com\t123\nlaiying\tying@q.com\t123\nlaiying\tying@q.com\t123&quot;
+    # v = test.expandtabs(20)
+    # print(v)
+
+# 7 从开始往后找，找到第一个之后，获取其未知
+    # &gt; 或 &gt;=
+    # test = &quot;alexalex&quot;
+    # 未找到 -1
+    # v = test.find(&apos;ex&apos;)
+    # print(v)
+
+# 8 index找不到，报错   忽略
+    # test = &quot;alexalex&quot;
+    # v = test.index(&apos;8&apos;)
+    # print(v)
+
+
+# 9 格式化，将一个字符串中的占位符替换为指定的值
+    # test = &apos;i am {name}, age {a}&apos;
+    # print(test)
+    # v = test.format(name=&apos;alex&apos;,a=19)
+    # print(v)
+
+    # test = &apos;i am {0}, age {1}&apos;
+    # print(test)
+    # v = test.format(&apos;alex&apos;,19)
+    # print(v)
+
+# 10 格式化，传入的值 {&quot;name&quot;: &apos;alex&apos;, &quot;a&quot;: 19}
+    # test = &apos;i am {name}, age {a}&apos;
+    # v1 = test.format(name=&apos;df&apos;,a=10)
+    # v2 = test.format_map({&quot;name&quot;: &apos;alex&apos;, &quot;a&quot;: 19})
+
+# 11 字符串中是否只包含 字母和数字
+    # test = &quot;123&quot;
+    # v = test.isalnum()
+    # print(v)
+    # str
+
+# 12 是否是字母，汉子
+    # test = &quot;as2df&quot;
+    # v = test.isalpha()
+    # print(v)
+
+# 13 当前输入是否是数字
+    # test = &quot;二&quot; # 1，②
+    # v1 = test.isdecimal()
+    # v2 = test.isdigit()
+    # v3 = test.isnumeric()
+    # print(v1,v2,v3)
+
+
+# 14 是否存在不可显示的字符
+    # \t   制表符
+    # \n   换行
+    # test = &quot;oiuas\tdfkj&quot;
+    # v = test.isprintable()
+    # print(v)
+
+# 15 判断是否全部是空格
+    # test = &quot;&quot;
+    # v = test.isspace()
+    # print(v)
+
+# 16 判断是否是标题
+    # test = &quot;Return True if all cased characters in S are uppercase and there is&quot;
+    # v1 = test.istitle()
+    # print(v1)
+    # v2 = test.title()
+    # print(v2)
+    # v3 = v2.istitle()
+    # print(v3)
+
+# 17 ***** 将字符串中的每一个元素按照指定分隔符进行拼接
+    # test = &quot;你是风儿我是沙&quot;
+    # print(test)
+    # # t = &apos; &apos;
+    # v = &quot;_&quot;.join(test)
+    # print(v)
+
+# 18 判断是否全部是大小写 和 转换为大小写
+    # test = &quot;Alex&quot;
+    # v1 = test.islower()
+    # v2 = test.lower()
+    # print(v1, v2)
+
+    # v1 = test.isupper()
+    # v2 = test.upper()
+    # print(v1,v2)
+# 19
+    # 移除指定字符串
+    # 有限最多匹配
+    # test = &quot;xa&quot;
+    # # v = test.lstrip(&apos;xa&apos;)
+    # v = test.rstrip(&apos;9lexxexa&apos;)
+    # # v = test.strip(&apos;xa&apos;)
+    # print(v)
+
+    # test.lstrip()
+    # test.rstrip()
+    # test.strip()
+    # 去除左右空白
+    # v = test.lstrip()
+    # v = test.rstrip()
+    # v = test.strip()
+    # print(v)
+    # print(test)
+    # 去除\t \n
+    # v = test.lstrip()
+    # v = test.rstrip()
+    # v = test.strip()
+    # print(v)
+
+# 20 对应关系替换
+    # test =  &quot;aeiou&quot;
+    # test1 = &quot;12345&quot;
+
+    # v = &quot;asidufkasd;fiuadkf;adfkjalsdjf&quot;
+    # m = str.maketrans(&quot;aeiou&quot;, &quot;12345&quot;)
+    # new_v = v.translate(m)
+    # print(new_v)
+
+# 21 分割为三部分
+    # test = &quot;testasdsddfg&quot;
+    # v = test.partition(&apos;s&apos;)
+    # print(v)
+    # v = test.rpartition(&apos;s&apos;)
+    # print(v)
+
+# 22 分割为指定个数
+    # v = test.split(&apos;s&apos;,2)
+    # print(v)
+    # test.rsplit()
+
+
+# 23 分割，只能根据，true，false：是否保留换行
+    # test = &quot;asdfadfasdf\nasdfasdf\nadfasdf&quot;
+    # v = test.splitlines(False)
+    # print(v)
+
+#  24 以xxx开头，以xx结尾
+    # test = &quot;backend 1.1.1.1&quot;
+    # v = test.startswith(&apos;a&apos;)
+    # print(v)
+    # test.endswith(&apos;a)
+
+# 25 大小写转换
+    # test = &quot;aLex&quot;
+    # v = test.swapcase()
+    # print(v)
+
+# 26 字母，数字，下划线 ： 标识符 def  class
+    # a = &quot;def&quot;
+    # v = a.isidentifier()
+    # print(v)
+
+
+# 27 将指定字符串替换为指定字符串
+    # test = &quot;alexalexalex&quot;
+    # v = test.replace(&quot;ex&quot;,&apos;bbb&apos;)
+    # print(v)
+    # v = test.replace(&quot;ex&quot;,&apos;bbb&apos;,2)
+    # print(v)
+###################### 7个基本魔法 ######################
+# join       # &apos;_&apos;.join(&quot;asdfasdf&quot;)
+# split
+# find
+# strip
+# upper
+# lower
+# replace
+###################### 4个灰魔法 ######################
+# test = &quot;郑建文妹子有种冲我来&quot;
+
+# 一、for循环
+    # for 变量名 in 字符串:
+    #     变量名
+    # break
+    # continue
+
+
+    # index = 0
+    # while index &lt; len(test):
+    #     v = test[index]
+    #     print(v)
+    #
+    #     index += 1
+    # print(&apos;=======&apos;)
+
+    # for zjw in test:
+    #     print(zjw)
+
+    # test = &quot;i am sb, babababbababababba&quot;
+    # for item in test:
+    #     print(item)
+    #     break
+
+    # for item in test:
+    #     continue
+    #     print(item)
+
+# 二、索引，下标，获取字符串中的某一个字符
+    # v = test[3]
+    # print(v)
+
+# 三、切片
+    # v = test[0:-1] # 0=&lt;  &lt;1
+    # print(v)
+
+# 四、获取长度
+    # Python3： len获取当前字符串中由几个字符组成
+    # v = len(test)
+    # print(v)
+
+# 注意：
+# len(&quot;asdf&quot;)
+# for循环
+# 索引
+# 切片
+
+# 五、获取连续或不连续的数字，
+    # Python2中直接创建在内容中
+    # python3中只有for循环时，才一个一个创建
+    # r1 = range(10)
+    # r2 = range(1,10)
+    # r3 = range(1,10,2)
+    # 帮助创建连续的数字,通过设置步长来指定不连续
+    # v = range(0, 100, 5)
+    #
+    # for item in v:
+    #     print(item)
+
+##### 练习题：根据用户输入的值，输出每一个字符以及当前字符所在的索引位置 #####
+    # test = input(&quot;&gt;&gt;&gt;&quot;)
+    # for item in test:
+    #     print(item)
+
+    # 将文字 对应的索引打印出来：
+    # test = input(&quot;&gt;&gt;&gt;&quot;)
+    # print(test)   # test = qwe   test[0]   test[1]
+    # l = len(test) # l = 3
+    # print(l)
+    #
+    # r = range(0,l) # 0,3
+    # for item in r:
+    #     print(item, test[item]) # 0 q,1 w,2 e
+
+    # test = input(&quot;&gt;&gt;&gt;&quot;)
+    # for item in range(0, len(test)):
+    #     print(item, test[item])
+
+
+
+
+###################### 1个深灰魔法 ######################
+# 字符串一旦创建，不可修改
+# 一旦修改或者拼接，都会造成重新生成字符串
+
+# name = &quot;zhengjianwen&quot;
+# age = &quot;18&quot;
+#
+# info = name + age
+# print(info)
+</code></pre><p>列表   list<br>    …<br>元祖   tuple<br>    …<br>字典   dict<br>    …</p>
+<p>布尔值 bool<br>    …</p>
+<p>—-&gt; 列表,元祖,字典,布尔值 详细操作见课上代码</p>
 
       
     </div>
@@ -488,7 +892,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -499,7 +903,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -510,7 +914,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
