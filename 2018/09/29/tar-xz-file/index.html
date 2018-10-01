@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="生活无奈," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="实习那得一个月，感觉前路迷茫。自己好像行走在漆黑的夜里，没有前进的方向和目标，也不知道从什么方面开始学起。自己能力很菜，之前在学校的时候，写代码都有很好的IDE环境，现在只能用编辑器还真有gcc编译，还是有很多不适应的地方，直到现在还不会gdb调试，唉。 人生啊！！！">
-<meta name="keywords" content="生活无奈">
+<meta name="description" content="XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="暗">
-<meta property="og:url" content="http://bToTd.github.io/2018/09/24/ToT-1/index.html">
+<meta property="og:title" content="tar.xz文件如何解压">
+<meta property="og:url" content="http://bToTd.github.io/2018/09/29/tar-xz-file/index.html">
 <meta property="og:site_name" content="bToTd">
-<meta property="og:description" content="实习那得一个月，感觉前路迷茫。自己好像行走在漆黑的夜里，没有前进的方向和目标，也不知道从什么方面开始学起。自己能力很菜，之前在学校的时候，写代码都有很好的IDE环境，现在只能用编辑器还真有gcc编译，还是有很多不适应的地方，直到现在还不会gdb调试，唉。 人生啊！！！">
+<meta property="og:description" content="XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-24T15:40:35.290Z">
+<meta property="og:updated_time" content="2018-09-29T14:58:41.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="暗">
-<meta name="twitter:description" content="实习那得一个月，感觉前路迷茫。自己好像行走在漆黑的夜里，没有前进的方向和目标，也不知道从什么方面开始学起。自己能力很菜，之前在学校的时候，写代码都有很好的IDE环境，现在只能用编辑器还真有gcc编译，还是有很多不适应的地方，直到现在还不会gdb调试，唉。 人生啊！！！">
+<meta name="twitter:title" content="tar.xz文件如何解压">
+<meta name="twitter:description" content="XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://bToTd.github.io/2018/09/24/ToT-1/"/>
+  <link rel="canonical" href="http://bToTd.github.io/2018/09/29/tar-xz-file/"/>
 
 
 
 
 
-  <title>暗 | bToTd</title>
+  <title>tar.xz文件如何解压 | bToTd</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/24/ToT-1/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/29/tar-xz-file/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">暗</h1>
+          <h1 class="post-title" itemprop="name headline">tar.xz文件如何解压</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T23:27:08+08:00">
-                2018-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T22:55:54+08:00">
+                2018-09-29
               </time>
             
 
@@ -302,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,8 +352,12 @@
       
 
       
-        <p>实习那得一个月，感觉前路迷茫。自己好像行走在漆黑的夜里，没有前进的方向和目标<br>，也不知道从什么方面开始学起。自己能力很菜，之前在学校的时候，写代码都有很好的<br>IDE环境，现在只能用编辑器还真有gcc编译，还是有很多不适应的地方，直到现在还不会<br>gdb调试，唉。</p>
-<p>人生啊！！！</p>
+        <p>XZ压缩最新压缩率之王<br>xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数linux默认就带的一个压缩工具。<br>之前xz使用一直很少，所以几乎没有什么提起。<br>我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。<br>最新一段时间会经常听到xz被采用的声音，像是最新的archlinux某些东西就使用xz压缩。不过xz也有一个坏处就是压缩时间比较长，比7z压缩时间还长一些。不过压缩是一次性的，所以可以忽略。</p>
+<p>xz压缩文件方法或命令<br>xz -z 要压缩的文件<br>如果要保留被压缩的文件加上参数 -k ，如果要设置压缩率加入参数 -0 到 -9调节压缩率。如果不设置，默认压缩等级是6.<br>xz解压文件方法或命令<br>xz -d 要解压的文件<br>同样使用 -k 参数来保留被解压缩的文件。<br>创建或解压tar.xz文件的方法<br>习惯了 tar czvf 或 tar xzvf 的人可能碰到 tar.xz也会想用单一命令搞定解压或压缩。其实不行 tar里面没有征对xz格式的参数比如 z是针对 gzip，j是针对 bzip2。</p>
+<p>创建tar.xz文件：只要先 tar cvf xxx.tar xxx/ 这样创建xxx.tar文件先，然后使用 xz -z xxx.tar 来将 xxx.tar压缩成为 xxx.tar.xz</p>
+<p>解压tar.xz文件：先 xz -d xxx.tar.xz 将 xxx.tar.xz解压成 xxx.tar 然后，再用 tar xvf xxx.tar来解包。</p>
+<hr>
+<p>本文来自 帝都码农 的CSDN 博客 ，全文地址请点击：<a href="https://blog.csdn.net/rheostat/article/details/7614451?utm_source=copy" target="_blank" rel="noopener">https://blog.csdn.net/rheostat/article/details/7614451?utm_source=copy</a></p>
 
       
     </div>
@@ -357,7 +383,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活无奈/" rel="tag"># 生活无奈</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -370,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/22/ToT/" rel="next" title="嗨～生活">
-                <i class="fa fa-chevron-left"></i> 嗨～生活
+              <a href="/2018/09/28/vim-M/" rel="next" title="vim打开文件末尾带有^M的解决方法">
+                <i class="fa fa-chevron-left"></i> vim打开文件末尾带有^M的解决方法
               </a>
             
           </div>
@@ -379,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/25/python/" rel="prev" title="python的基本数据类型">
-                python的基本数据类型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
