@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="c&c++," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="行走在万壑深渊的铁锁桥，每一步都要非常小心，细微的风吹草动都可能使你掉下深渊">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bToTd">
-<meta property="og:url" content="http://bToTd.github.io/tags/CMake/index.html">
+<meta name="description" content="问题描述设计一个算法，计算出n阶乘中尾部零的个数？挑战：时间复杂度 O(logN) 问题分析在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到n个数相乘可以分解出几个10。 但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n个数相乘可以分解出几个5。 n可以表示为：n = m * 5 + a这样就可以算出1 到 n 中有多">
+<meta name="keywords" content="c&amp;c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尾部的零">
+<meta property="og:url" content="http://bToTd.github.io/2018/10/02/尾部的零/index.html">
 <meta property="og:site_name" content="bToTd">
-<meta property="og:description" content="行走在万壑深渊的铁锁桥，每一步都要非常小心，细微的风吹草动都可能使你掉下深渊">
+<meta property="og:description" content="问题描述设计一个算法，计算出n阶乘中尾部零的个数？挑战：时间复杂度 O(logN) 问题分析在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到n个数相乘可以分解出几个10。 但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n个数相乘可以分解出几个5。 n可以表示为：n = m * 5 + a这样就可以算出1 到 n 中有多">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-02T13:15:06.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bToTd">
-<meta name="twitter:description" content="行走在万壑深渊的铁锁桥，每一步都要非常小心，细微的风吹草动都可能使你掉下深渊">
+<meta name="twitter:title" content="尾部的零">
+<meta name="twitter:description" content="问题描述设计一个算法，计算出n阶乘中尾部零的个数？挑战：时间复杂度 O(logN) 问题分析在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到n个数相乘可以分解出几个10。 但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n个数相乘可以分解出几个5。 n可以表示为：n = m * 5 + a这样就可以算出1 到 n 中有多">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://bToTd.github.io/tags/CMake/"/>
+  <link rel="canonical" href="http://bToTd.github.io/2018/10/02/尾部的零/"/>
 
 
 
 
 
-  <title>标签: CMake | bToTd</title>
+  <title>尾部的零 | bToTd</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,54 +249,185 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>CMake<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/尾部的零/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pig.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bToTd">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/21/CMake/" itemprop="url">
-              
-                <span itemprop="name">CMake</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">尾部的零</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-21T22:26:52+08:00"
-              content="2018-09-21" >
-          09-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T19:49:01+08:00">
+                2018-10-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试算法题/" itemprop="url" rel="index">
+                    <span itemprop="name">面试算法题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>设计一个算法，计算出n阶乘中尾部零的个数？<br>挑战：时间复杂度 O(logN)</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到<br>n个数相乘可以分解出几个10。</p>
+<p>但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n<br>个数相乘可以分解出几个5。</p>
+<p>n可以表示为：n = m * 5 + a<br>这样就可以算出1 到 n 中有多少个 5 的倍数<br>但是样只是在统计5的倍数的个数，还有种情况，是m也是5的倍数，比如 25 = 5 × 5<br>这样的 m 的这个 5 则没有计入总数，所以还要在计算 m = k * 5 + 1</p>
+<h3 id="c-代码实现"><a href="#c-代码实现" class="headerlink" title="c++ 代码实现"></a>c++ 代码实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">trailingZeros</span><span class="params">(<span class="keyword">long</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        sum += n / <span class="number">5</span>;</span><br><span class="line">        n /= <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="chuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>ex. subscribe to my blog by scanning my public wechat account</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c-c/" rel="tag"># c&c++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/01/a-b问题/" rel="next" title="a+b问题">
+                <i class="fa fa-chevron-left"></i> a+b问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/02/爬楼梯问题/" rel="prev" title="爬楼梯问题">
+                爬楼梯问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -302,6 +435,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -322,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -417,6 +563,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-代码实现"><span class="nav-number">3.</span> <span class="nav-text">c++ 代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -550,6 +712,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
