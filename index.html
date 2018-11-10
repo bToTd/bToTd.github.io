@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/18/qt-tree/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/11/10/quick-sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/18/qt-tree/" itemprop="url">QTreeview 的使用总结</a></h1>
+                <a class="post-title-link" href="/2018/11/10/quick-sort/" itemprop="url">快速排序算法</a></h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T21:33:14+08:00">
-                2018-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-10T20:30:35+08:00">
+                2018-11-10
               </time>
             
 
@@ -303,28 +303,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/qt编程/" itemprop="url" rel="index">
-                    <span itemprop="name">qt编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -355,13 +333,13 @@
       
         
           
-          这个学期的软件综合实践课中，要实现一个读 linux 的内核源码的编辑器。在 ui 设计中要用到了 QTreeview，使用这个类的过程还是看官方文档以及在网上的一些大佬的博客。
-大佬博客：https://blog.csdn.net/dpsying/article/details/79687254
+          ​    快速排序算法跟之前说的归并排序算法类似，都是要将原来的数组划分为两数组，只不过这个划分不是按照数组的中点划分。快速排序算法可以分为两个步骤：
 
+划分数组：将数组 A[p，r] 划分为两（可能为空的）子数组 arr1 = A[p，q-1] 和 arr2 = A[q+1，r]，使 arr1 中
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/18/qt-tree/#more" rel="contents">
+            <a class="btn" href="/2018/11/10/quick-sort/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -412,7 +390,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/15/qt-signal-slots/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/11/09/sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -431,7 +409,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/15/qt-signal-slots/" itemprop="url">qt信号和槽机制</a></h1>
+                <a class="post-title-link" href="/2018/11/09/sort/" itemprop="url">排序算法总结</a></h1>
         
 
         <div class="post-meta">
@@ -443,8 +421,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T16:53:24+08:00">
-                2018-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T21:35:12+08:00">
+                2018-11-09
               </time>
             
 
@@ -453,28 +431,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/qt编程/" itemprop="url" rel="index">
-                    <span itemprop="name">qt编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -505,13 +461,13 @@
       
         
           
-          文章来源：https://blog.csdn.net/lsfreeing/article/details/78575246
-信号和槽用于对象间的通信。信号/槽机制是 QT 的一个核心特征，也是 QT 与其他框架提供特征中最不同的部分。
-简介在GUI编程中，当我们改变一个部件时，经常想要其他部件被通知
+          1. 选择排序​    选择出数组中的最小元素，将它与数组的第一个元素交换位置。再从剩下的元素中选择出最小的元素，将它与数组的第二个元素交换位置。不断进行这样的操作，直到将整个数组排序。
+python代码实现：
+def swap(arr, i, j):    tmp = arr[i];    arr
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/15/qt-signal-slots/#more" rel="contents">
+            <a class="btn" href="/2018/11/09/sort/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -562,7 +518,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/10/python-thread/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/11/01/wordpress-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -581,7 +537,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/10/python-thread/" itemprop="url">python 线程</a></h1>
+                <a class="post-title-link" href="/2018/11/01/wordpress-blog/" itemprop="url">wordpress 搭建博客</a></h1>
         
 
         <div class="post-meta">
@@ -593,8 +549,157 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T12:33:53+08:00">
-                2018-10-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T09:31:26+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web编程/" itemprop="url" rel="index">
+                    <span itemprop="name">web编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          之前用hexo加github搭建博客，现在玩一下wordpress搭建博客。这个也挺简单的，不深入去追究原理的话，都是图形化界面，直接按照提示来就可以。
+1. 申请空间wordpress要在主机上运行，所以我在阿里云申请了个虚拟主机，这个虚拟主机来存放个人网站，也就是你的博客，这里我也就玩15天，因
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/01/wordpress-blog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/25/django-create-project/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pig.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bToTd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/django-create-project/" itemprop="url">django第一个项目</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T20:31:31+08:00">
+                2018-10-25
               </time>
             
 
@@ -655,15 +760,12 @@
       
         
           
-          threading 提供线程的相关操作。
-threading 模块提供的类 ：    Thread, LOck, Rlock, Condition, Event, Timer, local, [Bounded]Semaphore.
-threading 模块提供的常用方法
-
-threading.cur
+          创建项目Django中的项目（project）可以理解为一个网站。创建项目的命令为：django-admin startproject mysite
+创建成功后，会生成一个项目名的目录，目录的结构如下：wcl@bToTd:/media/wcl/data/win_and_ubuntu/python/d
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/10/python-thread/#more" rel="contents">
+            <a class="btn" href="/2018/10/25/django-create-project/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -714,7 +816,7 @@ threading.cur
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/09/data-type/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/25/django-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -733,7 +835,7 @@ threading.cur
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/09/data-type/" itemprop="url">数据类型</a></h1>
+                <a class="post-title-link" href="/2018/10/25/django-install/" itemprop="url">django框架的安装</a></h1>
         
 
         <div class="post-meta">
@@ -745,8 +847,8 @@ threading.cur
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T20:28:54+08:00">
-                2018-10-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T16:00:59+08:00">
+                2018-10-25
               </time>
             
 
@@ -768,8 +870,8 @@ threading.cur
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数字电路设计/" itemprop="url" rel="index">
-                    <span itemprop="name">数字电路设计</span>
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
                   </a>
                 </span>
 
@@ -807,26 +909,12 @@ threading.cur
       
         
           
-          为了更好的编写 vhdl 代码，就要了解 vhdl 有哪些数据类型以及怎么定义声明使用这些数据类型。下面表格列出了 vhdl 基本的可综合的数据类型。
-
-
-
-数据类型
-可综合的数值
-
-
-
-
-BIT，BIT_VECTOR
-‘0’， ‘1’
-
-
-STD_LOGIC，STD_LOGIC_VECTOR
-‘X
+          我用的系统是 ubuntu-18.0X，python 是3.6的版本。安装django的版本是1.10.1。ubuntu安装这个框架是比较的简单的，直接在终端中输入sudo pip3 install Django==1.10.1
+这样等一会就会下面的提示，这说明安装好了Installing coll
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/09/data-type/#more" rel="contents">
+            <a class="btn" href="/2018/10/25/django-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -877,7 +965,7 @@ STD_LOGIC，STD_LOGIC_VECTOR
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/08/vhdl-code-struct/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/25/qt-signal-slot/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -896,7 +984,7 @@ STD_LOGIC，STD_LOGIC_VECTOR
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/08/vhdl-code-struct/" itemprop="url">vhdl 代码结构</a></h1>
+                <a class="post-title-link" href="/2018/10/25/qt-signal-slot/" itemprop="url">qt中信号槽机制的理解</a></h1>
         
 
         <div class="post-meta">
@@ -908,8 +996,8 @@ STD_LOGIC，STD_LOGIC_VECTOR
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T22:02:28+08:00">
-                2018-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T15:25:53+08:00">
+                2018-10-25
               </time>
             
 
@@ -931,8 +1019,8 @@ STD_LOGIC，STD_LOGIC_VECTOR
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数字电路设计/" itemprop="url" rel="index">
-                    <span itemprop="name">数字电路设计</span>
+                  <a href="/categories/qt编程/" itemprop="url" rel="index">
+                    <span itemprop="name">qt编程</span>
                   </a>
                 </span>
 
@@ -970,14 +1058,11 @@ STD_LOGIC，STD_LOGIC_VECTOR
       
         
           
-          一段完整的 vhdl 代码有 3 个基本组成部分：库声明(library), 实体(entity)和构造体(architecture),由于 vhdl 大小写不敏感，所以之后的代码都用小写了。
-vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分：
-
-库(library)声明：列
-          ...
+          
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/08/vhdl-code-struct/#more" rel="contents">
+            <a class="btn" href="/2018/10/25/qt-signal-slot/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1028,7 +1113,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/08/modelsim-install/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/24/assembly-instruction-set/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -1047,7 +1132,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/08/modelsim-install/" itemprop="url">modelsim安装和破解</a></h1>
+                <a class="post-title-link" href="/2018/10/24/assembly-instruction-set/" itemprop="url">汇编指令大全（有注释） 转</a></h1>
         
 
         <div class="post-meta">
@@ -1059,8 +1144,8 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T21:17:19+08:00">
-                2018-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T23:19:34+08:00">
+                2018-10-24
               </time>
             
 
@@ -1069,28 +1154,6 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数字电路设计/" itemprop="url" rel="index">
-                    <span itemprop="name">数字电路设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1121,12 +1184,12 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
       
         
           
-          modelsim 软件安装包在官网已经不能直接下载了，所以要通过一些其他途径来获取这个安装包目前我只找到了 window下了安装包，是 请叫我小菜鸟先生 这位博主分享的。
-链接：https://blog.csdn.net/github_33678609/article/details/5349367
+           汇编指令大全（有注释）出处：http://cppblog.com/merlinfang/archive/2007/06/26/27025.html
+一、数据传输指令───────────────────────────────────────它们在存贮器和寄存器、寄存器和输入输出端口之间传送数据.
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/08/modelsim-install/#more" rel="contents">
+            <a class="btn" href="/2018/10/24/assembly-instruction-set/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1177,7 +1240,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/爬楼梯问题/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/22/idea-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -1196,7 +1259,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/02/爬楼梯问题/" itemprop="url">爬楼梯问题</a></h1>
+                <a class="post-title-link" href="/2018/10/22/idea-install/" itemprop="url">java ide idea 安装</a></h1>
         
 
         <div class="post-meta">
@@ -1208,8 +1271,8 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T21:30:34+08:00">
-                2018-10-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-22T16:51:42+08:00">
+                2018-10-22
               </time>
             
 
@@ -1218,28 +1281,6 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法面试题/" itemprop="url" rel="index">
-                    <span itemprop="name">算法面试题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1270,162 +1311,12 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
       
         
           
-          问题描述假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能有多少种不同的方法怕到顶部？
-问题分析设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(
-          ...
+          直接上链接：http://yangbingdong.com/2017/note-of-learning-idea-under-ubuntu/
+
+          
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/02/爬楼梯问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/尾部的零/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/pig.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bToTd">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/02/尾部的零/" itemprop="url">尾部的零</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T19:49:01+08:00">
-                2018-10-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试算法题/" itemprop="url" rel="index">
-                    <span itemprop="name">面试算法题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          问题描述设计一个算法，计算出n阶乘中尾部零的个数？挑战：时间复杂度 O(logN)
-问题分析在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到n个数相乘可以分解出几个10。
-但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/02/尾部的零/#more" rel="contents">
+            <a class="btn" href="/2018/10/22/idea-install/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1467,7 +1358,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1517,7 +1408,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1528,7 +1419,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1539,7 +1430,7 @@ vhdl 代码基本单元一段独立的 vhdl 代码至少包含 3 个组成部分
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/26/fat32-long-file-name/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/爬楼梯问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/26/fat32-long-file-name/" itemprop="url">fat32 长文件名结构</a></h1>
+                <a class="post-title-link" href="/2018/10/02/爬楼梯问题/" itemprop="url">爬楼梯问题</a></h1>
         
 
         <div class="post-meta">
@@ -293,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T09:41:38+08:00">
-                2018-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T21:30:34+08:00">
+                2018-10-02
               </time>
             
 
@@ -316,8 +316,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文件系统/" itemprop="url" rel="index">
-                    <span itemprop="name">文件系统</span>
+                  <a href="/categories/算法面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">算法面试题</span>
                   </a>
                 </span>
 
@@ -355,11 +355,12 @@
       
         
           
-          长目录项文件匹配文章转载于这里：https://blog.csdn.net/zeewee1986/article/details/41810669长文件名的处理在FAT32的directory entry里，所预留的文件名的长度是8.3格式的，也就是说，文件名是8个字符，后缀名是3个字符，长于这个的
+          问题描述假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能有多少种不同的方法怕到顶部？
+问题分析设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/26/fat32-long-file-name/#more" rel="contents">
+            <a class="btn" href="/2018/10/02/爬楼梯问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -410,7 +411,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/fat32结构介绍/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/尾部的零/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -429,7 +430,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/25/fat32结构介绍/" itemprop="url">fat32结构介绍</a></h1>
+                <a class="post-title-link" href="/2018/10/02/尾部的零/" itemprop="url">尾部的零</a></h1>
         
 
         <div class="post-meta">
@@ -441,8 +442,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T21:57:28+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T19:49:01+08:00">
+                2018-10-02
               </time>
             
 
@@ -464,8 +465,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文件系统/" itemprop="url" rel="index">
-                    <span itemprop="name">文件系统</span>
+                  <a href="/categories/面试算法题/" itemprop="url" rel="index">
+                    <span itemprop="name">面试算法题</span>
                   </a>
                 </span>
 
@@ -503,12 +504,13 @@
       
         
           
-          硬盘是用来存储数据的，为了使用和管理方便，这些数据以文件的形式存储在硬盘上。任何操作系统都有自己的文件管理系统，不同的文件系统又有各自不同的逻辑组织方式。例如：常见的文件系统有FAT，NTFS，EXT，UFS，HFS+等等。下面就来学习一下基于Windows的FAT32文件系统。
-FAT32文件系统
+          问题描述设计一个算法，计算出n阶乘中尾部零的个数？挑战：时间复杂度 O(logN)
+问题分析在n阶乘中，尾部中零的个数，我的第一反映是，这个数可以被几个10整除，也就是1到n个数相乘可以分解出几个10。
+但是，在仔细的分析，10 = 2 * 5, 而在n阶乘中，2总是比5多，所以问题又转化为求1到n
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/fat32结构介绍/#more" rel="contents">
+            <a class="btn" href="/2018/10/02/尾部的零/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -559,7 +561,7 @@ FAT32文件系统
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/sdl2-001/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/01/a-b问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -578,7 +580,7 @@ FAT32文件系统
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/25/sdl2-001/" itemprop="url">sdl2学习笔记</a></h1>
+                <a class="post-title-link" href="/2018/10/01/a-b问题/" itemprop="url">a+b问题</a></h1>
         
 
         <div class="post-meta">
@@ -590,8 +592,8 @@ FAT32文件系统
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T20:44:13+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T23:57:41+08:00">
+                2018-10-01
               </time>
             
 
@@ -613,8 +615,8 @@ FAT32文件系统
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c-c-编程/" itemprop="url" rel="index">
-                    <span itemprop="name">c/c++编程</span>
+                  <a href="/categories/算法面试题/" itemprop="url" rel="index">
+                    <span itemprop="name">算法面试题</span>
                   </a>
                 </span>
 
@@ -652,13 +654,14 @@ FAT32文件系统
       
         
           
-          SDL2 使用笔记一sdl2 英文教程：http://www.lazyfoo.net/tutorials/SDL/index.php
-SDL2 是外部库，在使用是要导入和配置链接，在 ubuntu 下 使用 code::Blocks 编译SDL项目时要添加对 SDL 库的链接。
-SDL2 的调用分为
+          a+b 问题描述给出两个整数 a 和 b , 求他们的和说明：a和b都是32位整数，可以用位运算
+问题分析这个问题主要是要我们理解计算机是怎么进行加法运算的，位运算是计算机的基本操作
+，而这问题就是要我们用位运算来实现计算机加法运算。这就涉及以下问题：
+计算机的数怎么记录表示：    在计算机中，所
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/sdl2-001/#more" rel="contents">
+            <a class="btn" href="/2018/10/01/a-b问题/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -709,7 +712,7 @@ SDL2 的调用分为
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/shadowsocks/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/29/tar-xz-file/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -728,7 +731,7 @@ SDL2 的调用分为
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/25/shadowsocks/" itemprop="url">shadowsocks服务器搭建</a></h1>
+                <a class="post-title-link" href="/2018/09/29/tar-xz-file/" itemprop="url">tar.xz文件如何解压</a></h1>
         
 
         <div class="post-meta">
@@ -740,8 +743,8 @@ SDL2 的调用分为
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T20:31:20+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T22:55:54+08:00">
+                2018-09-29
               </time>
             
 
@@ -763,8 +766,8 @@ SDL2 的调用分为
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/抄来的资料/" itemprop="url" rel="index">
-                    <span itemprop="name">抄来的资料</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -802,12 +805,11 @@ SDL2 的调用分为
       
         
           
-          Shadowsocks 服务器搭建​    最近觉得好玩，自己搭建了一个 shadowsocks 的服务器。刚开始就是为了玩一下，没想到还真成了，也就拿到了观看世界的门票了，还挺有成就感的。
-申请国外服务器​    搭建 shadowsocks 服务器的最终目的就是为了“环游世界”，所以要有一个国外
+          XZ压缩最新压缩率之王xz这个压缩可能很多都很陌生，不过您可知道xz是绝大数linux默认就带的一个压缩工具。之前xz使用一直很少，所以几乎没有什么提起。我是在下载phpmyadmin的时候看到这种压缩格式的，phpmyadmin压缩包xz格式的居然比7z还要小，这引起我的兴趣。最新一段时间会经常听
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/shadowsocks/#more" rel="contents">
+            <a class="btn" href="/2018/09/29/tar-xz-file/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -858,7 +860,7 @@ SDL2 的调用分为
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/python-socket/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/28/vim-M/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -877,7 +879,7 @@ SDL2 的调用分为
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/25/python-socket/" itemprop="url">python-socket</a></h1>
+                <a class="post-title-link" href="/2018/09/28/vim-M/" itemprop="url">vim打开文件末尾带有^M的解决方法</a></h1>
         
 
         <div class="post-meta">
@@ -889,8 +891,159 @@ SDL2 的调用分为
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T20:21:40+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T22:15:45+08:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vim的一些问题/" itemprop="url" rel="index">
+                    <span itemprop="name">vim的一些问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          最近在把win10系统下的文档转移到ubuntu上，在用vim编辑以前win10的文件时，文件每一行末尾都有^M这个标志，于是就上网搜了一下，得到问题的原因，以及解决方法。
+问题原因
+在windows下的文本文件的每一行结尾，都有一个回车(‘\n’)和换行(‘\r’)
+在linux下的文本文件的每一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/28/vim-M/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/28/python-string-format/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pig.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bToTd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/28/python-string-format/" itemprop="url">python 字符串格式化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T21:38:57+08:00">
+                2018-09-28
               </time>
             
 
@@ -951,13 +1104,12 @@ SDL2 的调用分为
       
         
           
-          socket模块说明该模块提供套接字操作和一些相关功能。在Unix上，它支持IP（Internet协议）和Unix域套接字。在其他系统上，它只支持IP。特定于套接字的函数可用作套接字对象的方法。
-函数：socket（） - 创建一个新的套接字对象
-socketpair（） - 创建一对新的套接字对象
+          python 字符串格式化有两种方式，一个是用%做占位符的格式化，这个跟c语言的print打印输出一样，另一个就是用format这个方法，这个在java中也有类似的方法。
+format 方式tpl = "i am &#123;name&#125;, age &#123;age&#125;, real
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/python-socket/#more" rel="contents">
+            <a class="btn" href="/2018/09/28/python-string-format/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1008,7 +1160,7 @@ socketpair（） - 创建一对新的套接字对象
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/25/python/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/28/python-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -1027,7 +1179,7 @@ socketpair（） - 创建一对新的套接字对象
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/25/python/" itemprop="url">python的基本数据类型</a></h1>
+                <a class="post-title-link" href="/2018/09/28/python-list/" itemprop="url">python数据类型：列表和元组</a></h1>
         
 
         <div class="post-meta">
@@ -1039,8 +1191,8 @@ socketpair（） - 创建一对新的套接字对象
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T20:06:57+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T20:14:03+08:00">
+                2018-09-28
               </time>
             
 
@@ -1101,12 +1253,11 @@ socketpair（） - 创建一对新的套接字对象
       
         
           
-          python中的数据类型有数字，字符串，列表，元组，字典，集合等。python数据类型都是封装得很好的类。因此这些数据类型中包含着很多功能的方法，下面介绍一些我用过的一些数据类型的方法，python的内建函数都有很详细的说明文档，可以通过阅读这些文档了解函数的使用方法。
-数字数据类型数字类型包括整数
+          列表和元组是python中的重要数据类型，其中包含的方法也很多。下面是抄的笔记#!/usr/bin/env python# -*- coding:utf-8 -*- v = "李杰" for item in v:     print(item)############################
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/25/python/#more" rel="contents">
+            <a class="btn" href="/2018/09/28/python-list/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1157,7 +1308,7 @@ socketpair（） - 创建一对新的套接字对象
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/24/ToT-1/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/27/mainwindow-nolayout/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -1176,7 +1327,7 @@ socketpair（） - 创建一对新的套接字对象
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/24/ToT-1/" itemprop="url">暗</a></h1>
+                <a class="post-title-link" href="/2018/09/27/mainwindow-nolayout/" itemprop="url">mainwindow_nolayoutAttempting to add QLayout "" to MainWindow "", which already has a layout</a></h1>
         
 
         <div class="post-meta">
@@ -1188,8 +1339,8 @@ socketpair（） - 创建一对新的套接字对象
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-24T23:27:08+08:00">
-                2018-09-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T16:58:46+08:00">
+                2018-09-27
               </time>
             
 
@@ -1198,6 +1349,28 @@ socketpair（） - 创建一对新的套接字对象
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/qt编程/" itemprop="url" rel="index">
+                    <span itemprop="name">qt编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1228,140 +1401,12 @@ socketpair（） - 创建一对新的套接字对象
       
         
           
-          实习那得一个月，感觉前路迷茫。自己好像行走在漆黑的夜里，没有前进的方向和目标，也不知道从什么方面开始学起。自己能力很菜，之前在学校的时候，写代码都有很好的IDE环境，现在只能用编辑器还真有gcc编译，还是有很多不适应的地方，直到现在还不会gdb调试，唉。
-人生啊！！！
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/24/ToT-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/22/ToT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="chuan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/pig.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="bToTd">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/22/ToT/" itemprop="url">嗨～生活</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-22T15:21:40+08:00">
-                2018-09-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          实习也算一个月了，什么都不懂，很无奈，很痛苦。而且情绪的发泄地，抗吧被封了把痛苦，矛盾的心情留在心里贼难受。情绪还是要有地方发泄的，所以再一次来弄这个个人博客，把傻逼的话写在这。
-实习中，真真正正了明白了自己到底有多垃圾，妈个蛋的，怎么会有这么菜的人。就像以前玩游戏时觉得自己和别人菜一样。还有，就是
+          qt中给QWidget或者QDialog设置布局方法很简单。直接创建一个布局，把想要加的控件往上面布局上放，最后在QWidget或者QDialog上调用setLayout()就可以了。
+然而，我想QMainWindow中使用这种办法来控制界面布局时却出现了下面错误mainwindow_nolayou
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/22/ToT/#more" rel="contents">
+            <a class="btn" href="/2018/09/27/mainwindow-nolayout/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1403,7 +1448,7 @@ socketpair（） - 创建一对新的套接字对象
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1453,7 +1498,7 @@ socketpair（） - 创建一对新的套接字对象
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1464,7 +1509,7 @@ socketpair（） - 创建一对新的套接字对象
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1475,7 +1520,7 @@ socketpair（） - 创建一对新的套接字对象
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
