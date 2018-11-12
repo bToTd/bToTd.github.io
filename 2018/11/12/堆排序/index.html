@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="qt," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用也很简单，直接调用这两个类给的接口就可以了，代码如下// 先把两个类 include 进来 #include &amp;lt;QTree&amp;gt;#include &amp;lt;QFileSystemModel&amp;gt;// 在你想要加的位置加上下面代码    QFileSystemModel * model = new">
-<meta name="keywords" content="qt">
+<meta name="description" content="​    堆排序算法的时间复杂度是O(nlgn)，是比较好的一种排序算法，特别是在找数组中的前几个最大值时。 堆堆是一个数组，可以被看成一个完全二叉树。二叉堆可以分为两种形式，最大堆和最小堆。  最大堆 ：所有的父亲节点都大于或者等于所有的孩子节点。  最小堆 ：父亲节点小于或者等于所有孩子节点。   堆排序的过程实现堆排序可以分为三步：  建立最大堆或者最小堆  将根节点的元素和堆中最后的元素互">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="QTree 和 QFileSystemModel 显示文件树">
-<meta property="og:url" content="http://bToTd.github.io/2018/09/27/qt-2/index.html">
+<meta property="og:title" content="排序算法总结  堆排序">
+<meta property="og:url" content="http://bToTd.github.io/2018/11/12/堆排序/index.html">
 <meta property="og:site_name" content="bToTd">
-<meta property="og:description" content="QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用也很简单，直接调用这两个类给的接口就可以了，代码如下// 先把两个类 include 进来 #include &amp;lt;QTree&amp;gt;#include &amp;lt;QFileSystemModel&amp;gt;// 在你想要加的位置加上下面代码    QFileSystemModel * model = new">
+<meta property="og:description" content="​    堆排序算法的时间复杂度是O(nlgn)，是比较好的一种排序算法，特别是在找数组中的前几个最大值时。 堆堆是一个数组，可以被看成一个完全二叉树。二叉堆可以分为两种形式，最大堆和最小堆。  最大堆 ：所有的父亲节点都大于或者等于所有的孩子节点。  最小堆 ：父亲节点小于或者等于所有孩子节点。   堆排序的过程实现堆排序可以分为三步：  建立最大堆或者最小堆  将根节点的元素和堆中最后的元素互">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T15:26:42.983Z">
+<meta property="og:updated_time" content="2018-11-12T14:43:44.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QTree 和 QFileSystemModel 显示文件树">
-<meta name="twitter:description" content="QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用也很简单，直接调用这两个类给的接口就可以了，代码如下// 先把两个类 include 进来 #include &amp;lt;QTree&amp;gt;#include &amp;lt;QFileSystemModel&amp;gt;// 在你想要加的位置加上下面代码    QFileSystemModel * model = new">
+<meta name="twitter:title" content="排序算法总结  堆排序">
+<meta name="twitter:description" content="​    堆排序算法的时间复杂度是O(nlgn)，是比较好的一种排序算法，特别是在找数组中的前几个最大值时。 堆堆是一个数组，可以被看成一个完全二叉树。二叉堆可以分为两种形式，最大堆和最小堆。  最大堆 ：所有的父亲节点都大于或者等于所有的孩子节点。  最小堆 ：父亲节点小于或者等于所有孩子节点。   堆排序的过程实现堆排序可以分为三步：  建立最大堆或者最小堆  将根节点的元素和堆中最后的元素互">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://bToTd.github.io/2018/09/27/qt-2/"/>
+  <link rel="canonical" href="http://bToTd.github.io/2018/11/12/堆排序/"/>
 
 
 
 
 
-  <title>QTree 和 QFileSystemModel 显示文件树 | bToTd</title>
+  <title>排序算法总结  堆排序 | bToTd</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/09/27/qt-2/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/11/12/堆排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">QTree 和 QFileSystemModel 显示文件树</h1>
+          <h1 class="post-title" itemprop="name headline">排序算法总结  堆排序</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T16:04:11+08:00">
-                2018-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T20:05:16+08:00">
+                2018-11-12
               </time>
             
 
@@ -302,28 +302,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/qt编程/" itemprop="url" rel="index">
-                    <span itemprop="name">qt编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -352,12 +330,27 @@
       
 
       
-        <p>QT编程中可以用QTree和QFileSystemModel来让目录在你写的界面中显示出来，使用<br>也很简单，直接调用这两个类给的接口就可以了，代码如下<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 先把两个类 include 进来 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTree&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在你想要加的位置加上下面代码</span></span><br><span class="line">    QFileSystemModel * model = <span class="keyword">new</span> QFileSystemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line">    QTreeView *tree = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    tree-&gt;setModel(model);</span><br></pre></td></tr></table></figure></p>
-<p>通过上面代码就可以简单的将目录以树的形式显示出来。但是这样的显示是直接把目录项的<br>所有信息都列出来，不仅仅是文件名，还有各种属性也都显示出来。<br>  可是这个不是我先要的效果，我仅仅只是想把文件名列出来，不要其他任何的消息。</p>
-<p>  于是乎，我在网上找到了这个URL：<a href="https://bbs.csdn.net/topics/390441119" target="_blank" rel="noopener">https://bbs.csdn.net/topics/390441119</a><br>  这里面告诉了我们解决方法<br>  第一，自己写一个子类继承QFileSystemModel这个类<br>  然后，改一下<br>  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QVariant QFileSystemModel::data ( <span class="keyword">const</span> QModelIndex &amp; index, <span class="keyword">int</span> role = Qt::DisplayRole ) <span class="keyword">const</span> [<span class="keyword">virtual</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者下面这个</span></span><br><span class="line">columnCount(<span class="keyword">const</span> QModelIndex &amp;parent)<span class="keyword">const</span>方法就可以达到目的了.</span><br></pre></td></tr></table></figure></p>
-<p>唉，但是水平有限，只能再次求助万能的网友了，这样，我又一次找到了一个神奇的<br>URL：<a href="https://blog.csdn.net/snail_hunan/article/details/75250992" target="_blank" rel="noopener">https://blog.csdn.net/snail_hunan/article/details/75250992</a></p>
-<h3 id="修改QFileSystemModel"><a href="#修改QFileSystemModel" class="headerlink" title="修改QFileSystemModel"></a>修改QFileSystemModel</h3><p>  写一个子类，继承自QFileSystemModel，然后在需要显示size,type,modified的地方，把这些信息屏蔽掉。<br>我知道Qt的Model显示数据，主要是在data这个函数中，然后Model的列是通过columnCount这个函数返回的。<br>所以我重写columnCount函数，只返回一列，这一列就是我们想要的名称。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtGui/QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTreeView&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFileSytemModel</span> :</span> <span class="keyword">public</span> QFileSystemModel</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//第1列显示名称，其他几列都屏蔽掉</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">columnCount</span><span class="params">(<span class="keyword">const</span> QModelIndex &amp;parent)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    MyFileSytemModel* model = <span class="keyword">new</span> MyFileSytemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line"></span><br><span class="line">    QTreeView* treeView = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    treeView-&gt;setModel(model);</span><br><span class="line">    treeView-&gt;setRootIndex(model-&gt;index(QDir::currentPath()));</span><br><span class="line">    treeView-&gt;show();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="修改TreeView"><a href="#修改TreeView" class="headerlink" title="修改TreeView"></a>修改TreeView</h3><p>如果我能把TreeView的第2，3，4列隐藏，也可以达到我想要的效果。结果还真被我发现了QTreeView中有个函数角<br>setColumnHidden，使用这个函数即可。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QtGui/QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QFileSystemModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QTreeView&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    QFileSystemModel* model = <span class="keyword">new</span> QFileSystemModel;</span><br><span class="line">    model-&gt;setRootPath(QDir::currentPath());</span><br><span class="line"></span><br><span class="line">    QTreeView* treeView = <span class="keyword">new</span> QTreeView;</span><br><span class="line">    treeView-&gt;setModel(model);</span><br><span class="line">    treeView-&gt;setRootIndex(model-&gt;index(QDir::currentPath()));</span><br><span class="line">    treeView-&gt;show();</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">    treeView-&gt;setColumnHidden(<span class="number">3</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>​    堆排序算法的时间复杂度是O(nlgn)，是比较好的一种排序算法，特别是在找数组中的前几个最大值时。</p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆是一个数组，可以被看成一个完全二叉树。二叉堆可以分为两种形式，最大堆和最小堆。</p>
+<ul>
+<li><p><strong>最大堆</strong> ：所有的父亲节点都大于或者等于所有的孩子节点。</p>
+</li>
+<li><p><strong>最小堆</strong> ：父亲节点小于或者等于所有孩子节点。</p>
+</li>
+</ul>
+<h3 id="堆排序的过程实现"><a href="#堆排序的过程实现" class="headerlink" title="堆排序的过程实现"></a>堆排序的过程实现</h3><p>堆排序可以分为三步：</p>
+<ol>
+<li><p>建立最大堆或者最小堆</p>
+</li>
+<li><p>将根节点的元素和堆中最后的元素互换</p>
+</li>
+<li><p>将破坏了的最大堆再次维护成最大堆</p>
+</li>
+</ol>
+<p>python实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 堆排序</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parent</span><span class="params">(index)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> int(index/<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leftChild</span><span class="params">(index)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rightChild</span><span class="params">(index)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 维护堆</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_heapify</span><span class="params">(arr, index, heap_size)</span>:</span></span><br><span class="line">    leftChildIndex = leftChild(index);</span><br><span class="line">    rightChildIndex = rightChild(index);</span><br><span class="line">    largest = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> leftChildIndex &lt; heap_size <span class="keyword">and</span> arr[leftChildIndex] &gt; arr[index]:</span><br><span class="line">        largest = leftChildIndex;</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        largest = index;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> rightChildIndex &lt; heap_size <span class="keyword">and</span> arr[rightChildIndex] &gt; arr[largest]:</span><br><span class="line">        largest = rightChildIndex;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> largest != index:</span><br><span class="line">        swap(arr, index, largest);</span><br><span class="line"></span><br><span class="line">        max_heapify(arr, largest, heap_size);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建最大堆</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_max_heap</span><span class="params">(arr, heap_size)</span>:</span></span><br><span class="line">    arrLen = len(arr);</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(int((arrLen<span class="number">-1</span>)/<span class="number">2</span>), <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">        max_heapify(arr, i, heap_size);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 堆排序</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">heap_sort</span><span class="params">(arr)</span>:</span></span><br><span class="line">    arrLen = len(arr);</span><br><span class="line">    heap_size = arrLen;</span><br><span class="line">    build_max_heap(arr, heap_size);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(arrLen - <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>):</span><br><span class="line">        swap(arr, <span class="number">0</span>, i);</span><br><span class="line">        heap_size -= <span class="number">1</span>;</span><br><span class="line">        max_heapify(arr, <span class="number">0</span>, heap_size);</span><br></pre></td></tr></table></figure>
+<p>javascript实现：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 堆排序</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getParentNodeIndex</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseInt</span>(index/<span class="number">2</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLeftChildIndex</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getRightChildIndex</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * index + <span class="number">2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 维护堆</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxHeapify</span>(<span class="params">arr, index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Left = getLeftChildIndex(index);</span><br><span class="line">    <span class="keyword">var</span> Right = getRightChildIndex(index);</span><br><span class="line">    <span class="keyword">var</span> largest;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(Left &lt; arr.heapSize &amp;&amp; arr[Left] &gt; arr[index])&#123;</span><br><span class="line">        largest = Left;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        largest = index;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(Right &lt; arr.heapSize &amp;&amp; arr[Right] &gt; arr[largest])&#123;</span><br><span class="line">        largest = Right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(largest != index)&#123;</span><br><span class="line">        swap(arr, index, largest);</span><br><span class="line">        maxHeapify(arr, largest);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 建最大堆</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildMaxHeap</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="built_in">parseInt</span>((arr.length - <span class="number">1</span>) / <span class="number">2</span>); i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">        maxHeapify(arr, i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 堆排序开始</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">heap_sort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    buildMaxHeap(arr);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = arr.length - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--)&#123;</span><br><span class="line">        swap(arr, <span class="number">0</span>, i);</span><br><span class="line">        arr.heapSize--;</span><br><span class="line">        maxHeapify(arr, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -383,7 +376,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/qt/" rel="tag"># qt</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -396,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/26/qt-1/" rel="next" title="qmake could not exec">
-                <i class="fa fa-chevron-left"></i> qmake could not exec
+              <a href="/2018/11/10/quick-sort/" rel="next" title="快速排序算法">
+                <i class="fa fa-chevron-left"></i> 快速排序算法
               </a>
             
           </div>
@@ -405,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/27/mainwindow-nolayout/" rel="prev" title="mainwindow_nolayoutAttempting to add QLayout "" to MainWindow "", which already has a layout">
-                mainwindow_nolayoutAttempting to add QLayout "" to MainWindow "", which already has a layout <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -574,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改QFileSystemModel"><span class="nav-number">1.</span> <span class="nav-text">修改QFileSystemModel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改TreeView"><span class="nav-number">2.</span> <span class="nav-text">修改TreeView</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆"><span class="nav-number">1.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序的过程实现"><span class="nav-number">2.</span> <span class="nav-text">堆排序的过程实现</span></a></li></ol></div>
             
 
           </div>
