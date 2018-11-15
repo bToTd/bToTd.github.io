@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="面试题,c&c++," />
+  <meta name="keywords" content="git," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="问题描述假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能有多少种不同的方法怕到顶部？ 问题分析设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(n -2)这样问题就变成了求二阶的斐波纳切数列，这样问题就很简单了。斐波纳切数列: 第 n 各值是由">
-<meta name="keywords" content="面试题,c&amp;c++">
+<meta name="description" content="git是一个开源的分布式版本控制系统，可以对项目进行版本管理.之前一直没有将 git 的基本使用操作给做总结。现在也是将大佬的复制一份。我个人觉得这篇总结的很好，下面给链接。 大佬的文章：https://blog.csdn.net/txw0415/article/details/80615045 为了之后查找方便我就将一些我现在能用到的复制了过来。 git的基本使用1. git init 初始化本">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬楼梯问题">
-<meta property="og:url" content="http://bToTd.github.io/2018/10/02/爬楼梯问题/index.html">
+<meta property="og:title" content="git的基本操作">
+<meta property="og:url" content="http://bToTd.github.io/2018/11/15/git的基本操作/index.html">
 <meta property="og:site_name" content="bToTd">
-<meta property="og:description" content="问题描述假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能有多少种不同的方法怕到顶部？ 问题分析设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(n -2)这样问题就变成了求二阶的斐波纳切数列，这样问题就很简单了。斐波纳切数列: 第 n 各值是由">
+<meta property="og:description" content="git是一个开源的分布式版本控制系统，可以对项目进行版本管理.之前一直没有将 git 的基本使用操作给做总结。现在也是将大佬的复制一份。我个人觉得这篇总结的很好，下面给链接。 大佬的文章：https://blog.csdn.net/txw0415/article/details/80615045 为了之后查找方便我就将一些我现在能用到的复制了过来。 git的基本使用1. git init 初始化本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-02T15:27:30.686Z">
+<meta property="og:updated_time" content="2018-11-15T13:10:35.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬楼梯问题">
-<meta name="twitter:description" content="问题描述假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能有多少种不同的方法怕到顶部？ 问题分析设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(n -2)这样问题就变成了求二阶的斐波纳切数列，这样问题就很简单了。斐波纳切数列: 第 n 各值是由">
+<meta name="twitter:title" content="git的基本操作">
+<meta name="twitter:description" content="git是一个开源的分布式版本控制系统，可以对项目进行版本管理.之前一直没有将 git 的基本使用操作给做总结。现在也是将大佬的复制一份。我个人觉得这篇总结的很好，下面给链接。 大佬的文章：https://blog.csdn.net/txw0415/article/details/80615045 为了之后查找方便我就将一些我现在能用到的复制了过来。 git的基本使用1. git init 初始化本">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://bToTd.github.io/2018/10/02/爬楼梯问题/"/>
+  <link rel="canonical" href="http://bToTd.github.io/2018/11/15/git的基本操作/"/>
 
 
 
 
 
-  <title>爬楼梯问题 | bToTd</title>
+  <title>git的基本操作 | bToTd</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/10/02/爬楼梯问题/">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2018/11/15/git的基本操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="chuan">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬楼梯问题</h1>
+          <h1 class="post-title" itemprop="name headline">git的基本操作</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-02T21:30:34+08:00">
-                2018-10-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T20:55:23+08:00">
+                2018-11-15
               </time>
             
 
@@ -302,28 +302,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法面试题/" itemprop="url" rel="index">
-                    <span itemprop="name">算法面试题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -352,9 +330,11 @@
       
 
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>假设你正在爬楼梯，需要 n 步你才能到达顶部。但是每次你只能爬一步或者两步，你能<br>有多少种不同的方法怕到顶部？</p>
-<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>设 An 到n阶楼梯的方法总数，则退一个状态，到 n 阶楼梯可能是由 n-1 一步到 n，也可能是<br>n-2 一次爬两步到 n，这样就可以得出： An = A(n-1) + A(n -2)<br>这样问题就变成了求二阶的斐波纳切数列，这样问题就很简单了。<br>斐波纳切数列: 第 n 各值是由 n 前面 k个 值相加而得，即：<br>An = An-1 + An-2 + … + An-k</p>
-<h3 id="c-代码实现"><a href="#c-代码实现" class="headerlink" title="c++ 代码实现"></a>c++ 代码实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">2</span>)</span><br><span class="line">      <span class="keyword">return</span> n;</span><br><span class="line">    <span class="keyword">int</span> * step = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">    step[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    step[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        step[i] = step[i - <span class="number">1</span>] + step[i - <span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> step[n<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>git是一个开源的分布式版本控制系统，可以对项目进行版本管理.之前一直没有将 git 的基本使用操作给做总结。现在也是将大佬的复制一份。我个人觉得这篇总结的很好，下面给链接。</p>
+<p>大佬的文章：<a href="https://blog.csdn.net/txw0415/article/details/80615045" target="_blank" rel="noopener">https://blog.csdn.net/txw0415/article/details/80615045</a></p>
+<p>为了之后查找方便我就将一些我现在能用到的复制了过来。</p>
+<h2 id="git的基本使用"><a href="#git的基本使用" class="headerlink" title="git的基本使用"></a>git的基本使用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. git init 初始化本地仓库       </span><br><span class="line">2. git add . 添加要管理的代码（当前的代码才能被git管理）       </span><br><span class="line">3. git commit -m <span class="string">'提交日志'</span> 把暂存区的文件去提交到git仓库       </span><br><span class="line">4. git status 查看状态       </span><br><span class="line">5. git <span class="built_in">log</span> 查看提交日志       </span><br><span class="line">6. git diff 查看代码修改       </span><br><span class="line">7. git reset --hard 版本回退       </span><br><span class="line">8. git reflog 查看所有版本号       </span><br><span class="line">9. git reset --hard HEAD^  git reset --hard 版本号   可以回退到上一个版本 或者指定版本</span><br><span class="line">		如果当前最新的代码没有提交马上回退 当前最新代码就没有了 </span><br><span class="line">		如果当前最新代码提交了但是再次回退 当前最新的代码还能找到</span><br></pre></td></tr></table></figure>
+<h2 id="git-github的完整使用步骤"><a href="#git-github的完整使用步骤" class="headerlink" title="git+github的完整使用步骤"></a>git+github的完整使用步骤</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1. 创建一个项目文件夹 letao项目2 </span><br><span class="line">2. 当前项目创建一个本地仓库  git init </span><br><span class="line">3. 把当前项目源代码添加到暂存区 git add . </span><br><span class="line">4. 把暂存区的代码提交到本地仓库 git commit -m <span class="string">'提交日志'</span> </span><br><span class="line">5. 去github创建一个服务器仓库 点击头像 》 your profile 》 点击respositories 》点击new 新建仓库 》 输入仓库名点击确定 </span><br><span class="line">6. 指定当前本地仓库要关联的服务器仓库   git remote add origin https://github.com/tu0415/my-letao   指定远程服务器仓库的地址 </span><br><span class="line">	如果这里报错，执行下面代码</span><br><span class="line">	git remote rm origin</span><br><span class="line">7. 把当前本地仓库的代码提交到服务器仓库里面   git push -u origin master   把本地仓库的源代码 推送到远程的master 8. 提交完成后在github服务器上就能看到你提交的代码 </span><br><span class="line">9. 如果后面再次添加代码    重复 3  4  7 步骤    git add .    git commit -m <span class="string">'添加index.js'</span>    git push -u origin master</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,9 +360,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试题/" rel="tag"># 面试题</a>
-          
-            <a href="/tags/c-c/" rel="tag"># c&c++</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -395,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/02/尾部的零/" rel="next" title="尾部的零">
-                <i class="fa fa-chevron-left"></i> 尾部的零
+              <a href="/2018/11/12/堆排序/" rel="next" title="排序算法总结  堆排序">
+                <i class="fa fa-chevron-left"></i> 排序算法总结  堆排序
               </a>
             
           </div>
@@ -404,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/08/modelsim-install/" rel="prev" title="modelsim安装和破解">
-                modelsim安装和破解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">2.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-代码实现"><span class="nav-number">3.</span> <span class="nav-text">c++ 代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git的基本使用"><span class="nav-number">1.</span> <span class="nav-text">git的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-github的完整使用步骤"><span class="nav-number">2.</span> <span class="nav-text">git+github的完整使用步骤</span></a></li></ol></div>
             
 
           </div>
