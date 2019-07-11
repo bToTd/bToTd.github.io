@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/chuan.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/chuan.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management 上面链接的文档将JavaScript的内存管理解释的很清楚。下面就是将这个文档的内容复制过来。 内存生命周期 分配你所需要的内存 使用分配到的内存（读、写） 不需要时将其释放\归还  在JavaScript中内存的分配和释放不需要我们自己">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript垃圾回收机制">
+<meta property="og:url" content="http://bToTd.github.io/2019/07/03/javascript垃圾回收机制/index.html">
+<meta property="og:site_name" content="bToTd">
+<meta property="og:description" content="参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management 上面链接的文档将JavaScript的内存管理解释的很清楚。下面就是将这个文档的内容复制过来。 内存生命周期 分配你所需要的内存 使用分配到的内存（读、写） 不需要时将其释放\归还  在JavaScript中内存的分配和释放不需要我们自己">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-03T15:41:27.611Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript垃圾回收机制">
+<meta name="twitter:description" content="参考文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management 上面链接的文档将JavaScript的内存管理解释的很清楚。下面就是将这个文档的内容复制过来。 内存生命周期 分配你所需要的内存 使用分配到的内存（读、写） 不需要时将其释放\归还  在JavaScript中内存的分配和释放不需要我们自己">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bToTd.github.io/2019/07/03/javascript垃圾回收机制/"/>
+
+
+
+
+
+  <title>javascript垃圾回收机制 | bToTd</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">bToTd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">MwM</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bToTd.github.io/2019/07/03/javascript垃圾回收机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/pig.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="bToTd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascript垃圾回收机制</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-03T22:24:07+08:00">
+                2019-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  参考文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management</a></p>
+<p>上面链接的文档将JavaScript的内存管理解释的很清楚。下面就是将这个文档的内容复制过来。</p>
+<h2 id="内存生命周期"><a href="#内存生命周期" class="headerlink" title="内存生命周期"></a>内存生命周期</h2><ol>
+<li>分配你所需要的内存</li>
+<li>使用分配到的内存（读、写）</li>
+<li>不需要时将其释放\归还</li>
+</ol>
+<p>在JavaScript中内存的分配和释放不需要我们自己来操作，但是这个让我很奇怪，不能自己管理内存，怎么能知道是否有内存泄漏。</p>
+<h3 id="JavaScript的内存分配"><a href="#JavaScript的内存分配" class="headerlink" title="JavaScript的内存分配"></a>JavaScript的内存分配</h3><p>JavaScript在定义变量的时候就把内存分配好了，同样的使用构造函数实例化对象时，JavaScript也会把内存分配好。这一切都是JavaScript中的机制帮你做好了，你不用考虑这个数据结构，变量要使用多少内存，怎么申请内存。</p>
+<h3 id="JavaScript的内存释放"><a href="#JavaScript的内存释放" class="headerlink" title="JavaScript的内存释放"></a>JavaScript的内存释放</h3><p>高级语言解释器嵌入了“垃圾回收器”，它的主要工作是跟踪内存的分配和使用，以便当分配的内存不再使用时，自动释放它。这只能是一个近似的过程，因为要知道是否仍然需要某块内存是<a href="http://en.wikipedia.org/wiki/Decidability_%28logic%29" target="_blank" rel="noopener">无法判定的</a>（无法通过某种算法解决）。</p>
+<h2 id="JavaScript的垃圾回收机制"><a href="#JavaScript的垃圾回收机制" class="headerlink" title="JavaScript的垃圾回收机制"></a>JavaScript的垃圾回收机制</h2><p>JavaScript中判定内存是否别使用的方式有两种：1. 引用计数，2. 标记清除。</p>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>垃圾回收算法主要依赖于引用的概念。在内存管理的环境中，一个对象如果有访问另一个对象的权限（隐式或者显式），叫做一个对象引用另一个对象。例如，一个Javascript对象具有对它<a href="https://developer.mozilla.org/en/JavaScript/Guide/Inheritance_and_the_prototype_chain" target="_blank" rel="noopener">原型</a>的引用（隐式引用）和对它属性的引用（显式引用）。</p>
+<p>在这里，“对象”的概念不仅特指 JavaScript 对象，还包括函数作用域（或者全局词法作用域）。</p>
+<h3 id="引用计数垃圾回收机制"><a href="#引用计数垃圾回收机制" class="headerlink" title="引用计数垃圾回收机制"></a>引用计数垃圾回收机制</h3><p>这是最初级的垃圾收集算法。此算法把“对象是否不再需要”简化定义为“对象有没有其他对象引用到它”。如果没有引用指向该对象（零引用），对象将被垃圾回收机制回收。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; </span><br><span class="line">  a: &#123;</span><br><span class="line">    b:<span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">// 两个对象被创建，一个作为另一个的属性被引用，另一个被分配给变量o</span></span><br><span class="line"><span class="comment">// 很显然，没有一个可以被垃圾收集</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o2 = o; <span class="comment">// o2变量是第二个对“这个对象”的引用</span></span><br><span class="line"></span><br><span class="line">o = <span class="number">1</span>;      <span class="comment">// 现在，“这个对象”的原始引用o被o2替换了</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> oa = o2.a; <span class="comment">// 引用“这个对象”的a属性</span></span><br><span class="line"><span class="comment">// 现在，“这个对象”有两个引用了，一个是o2，一个是oa</span></span><br><span class="line"></span><br><span class="line">o2 = <span class="string">"yo"</span>; <span class="comment">// 最初的对象现在已经是零引用了</span></span><br><span class="line">           <span class="comment">// 他可以被垃圾回收了</span></span><br><span class="line">           <span class="comment">// 然而它的属性a的对象还在被oa引用，所以还不能回收</span></span><br><span class="line"></span><br><span class="line">oa = <span class="literal">null</span>; <span class="comment">// a属性的那个对象现在也是零引用了</span></span><br><span class="line">           <span class="comment">// 它可以被垃圾回收了</span></span><br></pre></td></tr></table></figure>
+<h4 id="限制：循环引用"><a href="#限制：循环引用" class="headerlink" title="限制：循环引用"></a>限制：循环引用</h4><p>该算法有个限制：无法处理循环引用。在下面的例子中，两个对象被创建，并互相引用，形成了一个循环。它们被调用之后会离开函数作用域，所以它们已经没有用了，可以被回收了。然而，引用计数算法考虑到它们互相都有至少一次引用，所以它们不会被回收。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> o2 = &#123;&#125;;</span><br><span class="line">  o.a = o2; <span class="comment">// o 引用 o2</span></span><br><span class="line">  o2.a = o; <span class="comment">// o2 引用 o</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">"azerty"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br></pre></td></tr></table></figure>
+<h3 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h3><p>这个算法把“对象是否不再需要”简化定义为“对象是否可以获得”。</p>
+<p>这个算法假定设置一个叫做根（root）的对象（在Javascript里，根是全局对象）。垃圾回收器将定期从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……从根开始，垃圾回收器将找到所有可以获得的对象和收集所有不能获得的对象。</p>
+<p>这个算法比前一个要好，因为“有零引用的对象”总是不可获得的，但是相反却不一定，参考“循环引用”。</p>
+<p>从2012年起，所有现代浏览器都使用了标记-清除垃圾回收算法。所有对JavaScript垃圾回收算法的改进都是基于标记-清除算法的改进，并没有改进标记-清除算法本身和它对“对象是否不再需要”的简化定义。</p>
+<h4 id="循环引用不再是问题了"><a href="#循环引用不再是问题了" class="headerlink" title="循环引用不再是问题了"></a>循环引用不再是问题了</h4><p>在上面的示例中，函数调用返回之后，两个对象从全局对象出发无法获取。因此，他们将会被垃圾回收器回收。第二个示例同样，一旦 div 和其事件处理无法从根获取到，他们将会被垃圾回收器回收。</p>
+<h4 id="限制-那些无法从根对象查询到的对象都将被清除"><a href="#限制-那些无法从根对象查询到的对象都将被清除" class="headerlink" title="限制: 那些无法从根对象查询到的对象都将被清除"></a>限制: 那些无法从根对象查询到的对象都将被清除</h4><p>尽管这是一个限制，但实践中我们很少会碰到类似的情况，所以开发者不太会去关心垃圾回收机制。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/path/to/your/wechatqcode ex. /uploads/wechat-qcode.jpg" alt="chuan wechat" style="width: 200px; max-width: 100%;"/>
+    <div>ex. subscribe to my blog by scanning my public wechat account</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/nodejs调用shell/" rel="next" title="nodejs调用shell">
+                <i class="fa fa-chevron-left"></i> nodejs调用shell
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/03/cocos-creator-脚本在编辑器中引配置文件/" rel="prev" title="cocos creator 脚本在编辑器中引配置文件">
+                cocos creator 脚本在编辑器中引配置文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/pig.jpeg"
+                alt="chuan" />
+            
+              <p class="site-author-name" itemprop="name">chuan</p>
+              <p class="site-description motion-element" itemprop="description">行走在万壑深渊的铁锁桥，每一步都要非常小心，细微的风吹草动都可能使你掉下深渊</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bToTd" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:whuan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://panda-0129.github.io" title="bobo" target="_blank">bobo</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存生命周期"><span class="nav-number">1.</span> <span class="nav-text">内存生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript的内存分配"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript的内存分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript的内存释放"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript的内存释放</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的垃圾回收机制"><span class="nav-number">2.</span> <span class="nav-text">JavaScript的垃圾回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">2.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数垃圾回收机制"><span class="nav-number">2.2.</span> <span class="nav-text">引用计数垃圾回收机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#限制：循环引用"><span class="nav-number">2.2.1.</span> <span class="nav-text">限制：循环引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标记清除算法"><span class="nav-number">2.3.</span> <span class="nav-text">标记清除算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环引用不再是问题了"><span class="nav-number">2.3.1.</span> <span class="nav-text">循环引用不再是问题了</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制-那些无法从根对象查询到的对象都将被清除"><span class="nav-number">2.3.2.</span> <span class="nav-text">限制: 那些无法从根对象查询到的对象都将被清除</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
