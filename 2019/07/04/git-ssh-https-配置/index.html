@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="bToTd">
 <meta property="og:description" content="原文链接：https://www.jianshu.com/p/b5ec092fc1d1 git 链接远端的的两个方式：ssh和https。之前一直使用的https方式来连接远端。但是，突然间，一个项目关联的子模块使用的ssh，我特么的懵逼了，souscetree这个把我整的很烦，一直输用户名和密码都不对，然后就使用命令行操作了，结果显示要ssh。 ssh 的配置1. 获取ssh密钥默认情况下，用户">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-04T15:35:00.947Z">
+<meta property="og:updated_time" content="2019-07-26T01:01:18.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git ssh https 配置">
 <meta name="twitter:description" content="原文链接：https://www.jianshu.com/p/b5ec092fc1d1 git 链接远端的的两个方式：ssh和https。之前一直使用的https方式来连接远端。但是，突然间，一个项目关联的子模块使用的ssh，我特么的懵逼了，souscetree这个把我整的很烦，一直输用户名和密码都不对，然后就使用命令行操作了，结果显示要ssh。 ssh 的配置1. 获取ssh密钥默认情况下，用户">
@@ -303,6 +303,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/版本管理/" itemprop="url" rel="index">
+                    <span itemprop="name">版本管理</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/版本管理/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -334,7 +367,7 @@
 <p>git 链接远端的的两个方式：ssh和https。之前一直使用的https方式来连接远端。但是，突然间，一个项目关联的子模块使用的ssh，我特么的懵逼了，souscetree这个把我整的很烦，一直输用户名和密码都不对，然后就使用命令行操作了，结果显示要ssh。</p>
 <h2 id="ssh-的配置"><a href="#ssh-的配置" class="headerlink" title="ssh 的配置"></a>ssh 的配置</h2><h3 id="1-获取ssh密钥"><a href="#1-获取ssh密钥" class="headerlink" title="1. 获取ssh密钥"></a>1. 获取ssh密钥</h3><p>默认情况下，用户的 SSH 密钥存储在其 <code>~/.ssh</code> 目录下。</p>
 <p>我们需要寻找一对 <code>id_rsa</code> 或 <code>id_dsa</code> 命名的文件，其中一个带 <code>.pub</code> 扩展名。 ‘.pub’文件是你的公钥，另一个则是私钥。如果没有找不到这样的文件（或者根本就没有<code>.ssh</code>目录），我们可以通过 <code>ssh-keygen</code> 程序来创建它们。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">邮箱可以随便填</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -C <span class="string">"xx@xx.com"</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span>邮箱可以随便填</span><br><span class="line"><span class="meta">$</span> ssh-keygen -t rsa -C "xx@xx.com"</span><br></pre></td></tr></table></figure>
 <p>首先 <code>ssh-keygen</code> 会确认密钥的存储位置和文件名（默认是 <code>.ssh/id_rsa</code>）,然后他会要求你输入两次密钥口令，<strong>不想每次都输密码就留空</strong>。所以一般选用默认，全部回车即可。</p>
 <h3 id="2-git服务器设置"><a href="#2-git服务器设置" class="headerlink" title="2. git服务器设置"></a>2. git服务器设置</h3><p>接下来我们登陆到GitHub上，右上角小头像-&gt;Setting-&gt;SSH and GPG keys中，点击new SSH key。</p>
 <p>Title：可以随便填写，但最好起的名字能让自己知道这个公钥是哪个设备的。</p>
@@ -475,7 +508,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -486,7 +519,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -497,7 +530,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
