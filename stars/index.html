@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>星光特效</title>
+  <title>圣诞快乐</title>
   <style>
   * {
     margin: 0;
@@ -222,6 +222,7 @@
               } else {
                 requestAnimationFrame(render);
               }
+              info();
             }
           });
         }
@@ -233,6 +234,7 @@
               time += 0.1;
               color = 'hsl(' + Math.sin(time * Math.PI / 180) * 360 + ', 80%, 60%)';
               ctx.clearRect(0, 0, X, Y);
+              info();
               thirdMotion();
               for (var i = 0; i < sparks.length; i++) {
                 sparks[i].render(i);
@@ -242,6 +244,7 @@
               } else {
                 requestAnimationFrame(render);
               }
+              info();
             }
           });
         }
@@ -263,6 +266,7 @@
               } else {
                 requestAnimationFrame(render);
               }
+              info();
             }
           });
         }
@@ -286,6 +290,7 @@
               } else {
                 requestAnimationFrame(render);
               }
+              info();
             }
           });
         }
@@ -306,8 +311,20 @@
               } else {
                 requestAnimationFrame(render);
               }
+              info()
             }
           });
+        }
+
+        function info(){
+          var text = "小姐姐来耍游戏嘛";
+          //1. 使用`font`设置字体。
+          ctx.font = "50px serif";
+          //2. 使用`fillStyle`设置字体颜色。
+          ctx.fillStyle = "#00AAAA";
+          //3. 使用`fillText()`方法显示字体。
+          var twidth = ctx.measureText(text).width;
+          ctx.fillText(text,X/2 - twidth / 2,Y/2);
         }
 
         function recursion() {
